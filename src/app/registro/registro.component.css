@@ -1,0 +1,130 @@
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: #f2f2f2; /* Gris claro */
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Blanco */
+  width: 410px;
+  padding: 30px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.container .text {
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.container h2 {
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.container h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 28px;
+  border-radius: 12px;
+}
+
+.container form {
+  margin-top: 30px;
+}
+
+.container form .input-box {
+  height: 52px;
+  margin: 18px 0;
+}
+
+.container .input-box button[type="submit"] {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form .input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: #4070f4;
+}
+
+form .policy {
+  display: flex;
+  align-items: center;
+}
+
+form .policy h3 {
+  color: black;
+  width: 100%;
+  text-align: center;
+}
+
+form .policy h3 a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+form .policy h3 a:hover {
+  text-decoration: underline;
+}
+
+form h3 {
+  color: #3498db;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.input-box.button input[type="submit"] {
+  letter-spacing: 1px;
+  border: none;
+  background: rgb(50, 51, 53);
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s, color 0.3s; /* Agregamos transiciones para suavizar el cambio de color */
+}
+
+.input-box.button input[type="submit"]:hover {
+  background: rgb(167, 163, 163);
+  color: black; /* Cambiamos el color del texto al pasar el cursor */
+}
+form .text h3 {
+  color: black;
+  width: 100%;
+  text-align: center;
+}
+
+form .text h3 a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+form .text h3 a:hover {
+  text-decoration: underline;
+}
