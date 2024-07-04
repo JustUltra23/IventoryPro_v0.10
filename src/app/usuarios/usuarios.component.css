@@ -1,0 +1,117 @@
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: #f2f2f2; /* Gris claro */
+  }
+  
+  .container {
+    background-color: #fff; /* Blanco */
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 1200px;
+  }
+  
+  .container .text {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #userTable th, #userTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #userTable th {
+    background-color: #f2f2f2; /* Gris claro */
+    font-weight: bold;
+  }
+  
+  #userTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  #userTable tr:hover {
+    background-color: #ddd;
+  }
+  
+  button {
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #3498db;
+  }
+  
+  .edit-form {
+    background-color: #fff; /* Blanco */
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .edit-form h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .edit-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .edit-form form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .edit-form form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1.5px solid #C7BEBE;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .edit-form form input:focus,
+  .edit-form form input:valid {
+    border-color: #4070f4;
+  }
+  
+  .edit-form form button {
+    background-color: rgb(50, 51, 53);
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  
+  .edit-form form button:hover {
+    background-color: rgb(167, 163, 163);
+    color: black;
+  }
+  
+  .edit-form form .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  

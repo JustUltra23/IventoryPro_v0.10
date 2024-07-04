@@ -1,0 +1,61 @@
+<div class="container">
+    <h2>Listado de Productos</h2>
+  
+    <!-- Botón para agregar nuevo producto -->
+    <button (click)="mostrarFormularioNuevo()">Agregar Nuevo Producto</button>
+  
+    <!-- Tabla para mostrar los productos -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Código EAN</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>ID Proveedor</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se mostrarán los productos -->
+        <tr *ngFor="let producto of productos">
+          <td>{{ producto.id }}</td>
+          <td>{{ producto.codigo_ean }}</td>
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.descripcion }}</td>
+          <td>{{ producto.precio }}</td>
+          <td>{{ producto.proveedor_id }}</td>
+          <td>
+            <button (click)="mostrarFormularioEditar(producto)">Editar</button>
+            <button (click)="eliminarProducto(producto.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Formulario para editar o agregar producto -->
+    <div *ngIf="productoActual !== null">
+      <h3>{{ creandoNuevo ? 'Agregar Nuevo Producto' : 'Editar Producto' }}</h3>
+      <form (ngSubmit)="guardarProducto()">
+        <label for="codigoEAN">Código EAN:</label>
+        <input type="text" id="codigoEAN" name="codigoEAN" [(ngModel)]="productoActual.codigo_ean" required>
+  
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="productoActual.nombre" required>
+  
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" [(ngModel)]="productoActual.descripcion"></textarea>
+  
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" id="precio" name="precio" [(ngModel)]="productoActual.precio" required>
+  
+        <label for="proveedorID">ID Proveedor:</label>
+        <input type="number" id="proveedorID" name="proveedorID" [(ngModel)]="productoActual.proveedor_id" required>
+  
+        <button type="submit">{{ creandoNuevo ? 'Guardar' : 'Actualizar' }}</button>
+        <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  

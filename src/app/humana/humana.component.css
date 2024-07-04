@@ -1,18 +1,11 @@
-body {
-    height: 100vh;
-    width: 100%;
-    background-color: #f2f2f2; /* Gris claro */
-}
-
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: #fff; /* Blanco */
-    width: 700px;
-    padding: 100px;
+    width: 100%;
+    max-width: 1000px; /* Ajusta el ancho máximo según sea necesario */
+    margin: 50px auto; /* Centra el contenedor y agrega margen */
+    padding: 20px;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Incluye el padding en el ancho */
 }
 
 .container .text {
@@ -22,16 +15,13 @@ body {
 }
 
 .buttons {
-    margin-top: 50px;
-    margin-bottom: -20px;
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center; /* Centra horizontalmente los botones */
 }
 
 .buttons button {
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: 0 10px; /* Espacio entre botones */
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;

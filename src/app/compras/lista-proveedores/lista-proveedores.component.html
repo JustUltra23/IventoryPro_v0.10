@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Listado de Proveedores</h2>
+  
+    <!-- Botón para agregar nuevo proveedor -->
+    <button (click)="mostrarFormularioNuevo()">Agregar Nuevo Proveedor</button>
+  
+    <!-- Tabla para mostrar los proveedores -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Identificación</th>
+          <th>Fecha de Convenio</th>
+          <th>Dirección</th>
+          <th>Celular</th>
+          <th>Correo Electrónico</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se mostrarán los proveedores -->
+        <tr *ngFor="let proveedor of proveedores">
+          <td>{{ proveedor.id }}</td>
+          <td>{{ proveedor.nombre }}</td>
+          <td>{{ proveedor.identificacion }}</td>
+          <td>{{ proveedor.fecha_convenio }}</td>
+          <td>{{ proveedor.direccion }}</td>
+          <td>{{ proveedor.celular }}</td>
+          <td>{{ proveedor.correo_electronico }}</td>
+          <td>
+            <button (click)="mostrarFormularioEditar(proveedor)">Editar</button>
+            <button (click)="eliminarProveedor(proveedor.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Formulario para editar o agregar proveedor -->
+    <div *ngIf="proveedorActual !== null">
+      <h3>{{ creandoNuevo ? 'Agregar Nuevo Proveedor' : 'Editar Proveedor' }}</h3>
+      <form (ngSubmit)="actualizarProveedor()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="proveedorActual.nombre" required>
+  
+        <label for="identificacion">Identificación:</label>
+        <input type="text" id="identificacion" name="identificacion" [(ngModel)]="proveedorActual.identificacion" required>
+  
+        <label for="fechaConvenio">Fecha de Convenio:</label>
+        <input type="date" id="fechaConvenio" name="fechaConvenio" [(ngModel)]="proveedorActual.fecha_convenio" required>
+  
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" [(ngModel)]="proveedorActual.direccion" required>
+  
+        <label for="celular">Celular:</label>
+        <input type="text" id="celular" name="celular" [(ngModel)]="proveedorActual.celular" required>
+  
+        <label for="correoElectronico">Correo Electrónico:</label>
+        <input type="email" id="correoElectronico" name="correoElectronico" [(ngModel)]="proveedorActual.correo_electronico" required>
+  
+        <!-- Campo para ciudad -->
+        <label for="ciudad">Ciudad:</label>
+        <input type="number" id="ciudad" name="ciudad" [(ngModel)]="proveedorActual.ciudad" required>
+  
+        <button type="submit">{{ creandoNuevo ? 'Guardar' : 'Actualizar' }}</button>
+        <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  
+  

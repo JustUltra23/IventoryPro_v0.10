@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="styledashboard.css">
 <title>Dashboard</title>
-</head>
-<body>
 <aside class="sidenav bg-gradient-dark" id="sidenav-main">
     <hr class="horizontal light">
     <ul class="navbar-nav">
@@ -62,25 +56,24 @@
         <h6 class="text-uppercase text-xs text-white font-weight-bolder opacity-8">MANEJO DE CUENTA</h6>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/perfil">
-          <span class="nav-link-text">Profile</span>
+        <a class="nav-link text-white" routerLink="/usuarios">
+          <span class="nav-link-text">Usuarios</span>
           <img src="assets/img/perfil.png" alt="Icono Perfil" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/login">
-          <span class="nav-link-text">Sign In</span>
+          <span class="nav-link-text">Login</span>
           <img src="assets/img/ingresar.png" alt="Icono Ingreso" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/registro">
-          <span class="nav-link-text">Sign Up</span>
+          <span class="nav-link-text">Registrarse</span>
           <img src="assets/img/registrar.png" alt="Icono Registro" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
         </a>
       </li>
     </ul>
   </aside>
-    <router-outlet></router-outlet>
-</body>
-</html>
+  <router-outlet></router-outlet>
+

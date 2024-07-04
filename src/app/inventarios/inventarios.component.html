@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mantenimiento IventoryPro</title>
-  <link rel="stylesheet" href="inventarios.component.css">
-</head>
-<body>
-  <div class="container">
-    <div class="text">
+<link rel="stylesheet" href="inventarios.component.css">
+<div class="container">
+  <div class="text">
       Inventarios IventoryPro
-    </div>
-    <div class="buttons">
-      <button type="button">Operaciones de Mercancia</button>
-      <button type="button">Consulta de Inventario</button>
-      <button type="button">Recepción de mercancia</button>
-    </div>
   </div>
-</body>
-</html>
+  <div class="buttons">
+      <button type="button" routerLink="mercancia">Operaciones de Mercancia</button>
+      <button type="button" routerLink="consultainventario">Consulta de Inventario</button>
+      <button type="button" routerLink="recepcionmercancia">Recepción de mercancia</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
+

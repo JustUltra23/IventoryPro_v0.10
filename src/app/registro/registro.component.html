@@ -10,28 +10,31 @@
   <div class="container">
     <div class="text">
       Registro IventoryPro
-   </div>
-    <form action="#">
+    </div>
+    <form id="registroForm" (ngSubmit)="ingresar()" #registroForm="ngForm">
       <div class="input-box">
-        <input type="text" placeholder="Ingresa tus Nombres" required>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" [(ngModel)]="user.nombre_usuario" placeholder="Ingresa tu Nombre de Usuario" required>
       </div>
       <div class="input-box">
-        <input type="text" placeholder="Ingresa tus Apellidos" required>
+        <input type="text" id="nombre_completo" name="nombre_completo" [(ngModel)]="user.nombre_completo" placeholder="Ingresa tus Nombres y Apellidos" required>
       </div>
       <div class="input-box">
-        <input type="text" placeholder="Ingresa tu Correo" required>
+        <input type="email" id="correo_electronico" name="correo_electronico" [(ngModel)]="user.correo_electronico" placeholder="Ingresa tu Correo" required>
       </div>
       <div class="input-box">
-        <input type="text" placeholder="Ingresa tu cedula" required>
+        <input type="text" id="identificacion" name="identificacion" [(ngModel)]="user.identificacion" placeholder="Ingresa tu Cédula" required>
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Crea tu contraseña" required>
+        <input type="text" id="celular" name="celular" [(ngModel)]="user.celular" placeholder="Ingresa tu Celular" required pattern="[0-9]{10}">
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Confirma tu contraseña" required>
+        <input type="password" id="contrasena" name="contrasena" [(ngModel)]="user.contrasena" placeholder="Crea tu contraseña" required>
+      </div>
+      <div class="input-box">
+        <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" [(ngModel)]="user.confirmar_contrasena" placeholder="Confirma tu contraseña" required>
       </div>
       <div class="policy">
-        <input type="checkbox">
+        <input type="checkbox" id="terminos" name="terminos" required>
         <h3><a href="#">Yo Acepto Terminos y Condiciones</a></h3>
       </div>
       <div class="input-box button">
@@ -44,3 +47,10 @@
   </div>
 </body>
 </html>
+
+
+
+
+
+
+
