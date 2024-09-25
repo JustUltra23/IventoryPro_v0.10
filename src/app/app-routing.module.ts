@@ -19,17 +19,49 @@ import { SolicitudesSuministrosComponent } from './compras/solicitudes-suministr
 import { ConsultaInventarioComponent } from './inventarios/consulta-inventario/consulta-inventario.component';
 import { MercanciaComponent } from './inventarios/mercancia/mercancia.component';
 import { RecepcionMercanciaComponent } from './inventarios/recepcion-mercancia/recepcion-mercancia.component';
+import { GenerarVentaComponent } from './ventas/generar-venta/generar-venta.component';
+import { ModFacturasComponent } from './ventas/mod-facturas/mod-facturas.component';
+import { VentasAcumuladasComponent } from './ventas/ventas-acumuladas/ventas-acumuladas.component';
+import { PQRComponent } from './humana/pqr/pqr.component';
+import { InsumosComponent } from './mantenimiento/insumos/insumos.component';
+import { MissolicitudesComponent } from './mantenimiento/missolicitudes/missolicitudes.component';
+import { SolicitudmantenimientoComponent } from './mantenimiento/solicitudmantenimiento/solicitudmantenimiento.component';
+import { ImpuestosComponent } from './contabilidad/impuestos/impuestos.component';
+import { EstadosFinancierosComponent } from './contabilidad/estados-financieros/estados-financieros.component';
+import { ConciliacionesComponent } from './contabilidad/conciliaciones/conciliaciones.component';
+import { DatosEmpleadoComponent } from './humana/datos-empleado/datos-empleado.component';
+import { AuthGuard } from './auth.guard';
+import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
   { 
     path: '', 
     component: PrincipalComponent, 
+    canActivate: [AuthGuard],  // Asegura que solo los usuarios autenticados accedan a estas rutas    
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent},
       { path: 'administracion', component: AdministracionComponent },
-      { path: 'contabilidad', component: ContabilidadComponent },
-      { path: 'ventas', component: VentasComponent },
+      { path: 'contabilidad', 
+        component: ContabilidadComponent, 
+        canActivate: [RoleGuard], // Aplicar RoleGuard
+        data: { roles: [1,2,3,4,5,6,7,8] }, 
+        children : [
+          {path:'estados', component: EstadosFinancierosComponent},
+          {path:'conciliaciones', component: ConciliacionesComponent},
+          {path:'impuestos', component: ImpuestosComponent},
+        ] 
+      },
+      { path: 'ventas', 
+        component: VentasComponent, 
+        children: [
+          {path: 'generar_venta', component: GenerarVentaComponent},
+          {path: 'modificacion_facturas', component: ModFacturasComponent},
+          {path: 'ventas_acumuladas', component: VentasAcumuladasComponent},
+        ]
+      },
       { 
         path: 'compras', 
         component: ComprasComponent,
@@ -47,15 +79,26 @@ const routes: Routes = [
           { path: 'mercancia', component: MercanciaComponent},
           { path: 'recepcionmercancia', component: RecepcionMercanciaComponent},
          ]
-         },
-      { path: 'mantenimiento', component: MantenimientoComponent },
-      { path: 'humana', component: HumanaComponent },
+      },
+      { path: 'mantenimiento', 
+        component: MantenimientoComponent,
+        children: [
+          {path: 'insumos', component: InsumosComponent},
+          {path: 'solicitudesmantenimiento', component: SolicitudmantenimientoComponent},
+          {path: 'missolicitudes', component: MissolicitudesComponent},
+        ]
+      },
+      { path: 'humana', 
+        component: HumanaComponent, 
+        children: [
+          {path: 'pqr', component: PQRComponent},
+          {path:'datos', component: DatosEmpleadoComponent},
+        ]
+      },
       { path: 'usuarios', component: UsuariosComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'registro', component: RegistroComponent },
     ]
   },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: '/dashboard' }  // Redirige a login si la ruta no coincide
 ];
 
 

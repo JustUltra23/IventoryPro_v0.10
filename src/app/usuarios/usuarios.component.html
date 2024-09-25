@@ -1,66 +1,66 @@
-  <title>Módulo de Usuarios</title>
-    <link rel="stylesheet" href="usuarios.component.css">
-    <div class="container">
-        <div class="text">Usuarios Creados</div>
-        <table id="userTable">
-            <thead>
-                <tr>
-                    <th>Nombre de Usuario</th>
-                    <th>Identificación</th>
-                    <th>Nombre Completo</th>
-                    <th>Correo Electrónico</th>
-                    <th>Celular</th>
-                    <th>Rol ID</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let usuario of usuarios">
-                    <td>{{ usuario.nombre_usuario }}</td>
-                    <td>{{ usuario.identificacion }}</td>
-                    <td>{{ usuario.nombre_completo }}</td>
-                    <td>{{ usuario.correo_electronico }}</td>
-                    <td>{{ usuario.celular }}</td>
-                    <td>{{ usuario.rol_id }}</td>
-                    <td>
-                        <button (click)="mostrarFormularioEditar(usuario)">Editar</button>
-                        <button (click)="eliminarUsuario(usuario.id)">Eliminar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<title>Módulo de Usuarios</title>
+<link rel="stylesheet" href="usuarios.component.css">
+<div class="container">
+    <div class="text">Usuarios Creados</div>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Identificación</th>
+                <th>Nombre Completo</th>
+                <th>Correo Electrónico</th>
+                <th>Celular</th>
+                <th>Rol ID</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{ usuario.nombre_usuario }}</td>
+                <td>{{ usuario.identificacion }}</td>
+                <td>{{ usuario.nombre_completo }}</td>
+                <td>{{ usuario.correo_electronico }}</td>
+                <td>{{ usuario.celular }}</td>
+                <td>{{ usuario.rol_id }}</td>
+                <td>
+                    <button (click)="mostrarFormularioEditar(usuario)">Editar</button>
+                    <button (click)="eliminarUsuario(usuario.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-        <div *ngIf="usuarioActual" class="edit-form">
-            <h3>Editar Usuario</h3>
-            <form>
-                <label>
-                    Nombre de Usuario:
-                    <input [(ngModel)]="usuarioActual.nombre_usuario" name="nombre_usuario">
-                </label>
-                <label>
-                    Identificación:
-                    <input [(ngModel)]="usuarioActual.identificacion" name="identificacion">
-                </label>
-                <label>
-                    Nombre Completo:
-                    <input [(ngModel)]="usuarioActual.nombre_completo" name="nombre_completo">
-                </label>
-                <label>
-                    Correo Electrónico:
-                    <input [(ngModel)]="usuarioActual.correo_electronico" name="correo_electronico">
-                </label>
-                <label>
-                    Celular:
-                    <input [(ngModel)]="usuarioActual.celular" name="celular">
-                </label>
-                <label>
-                    Rol ID:
-                    <input [(ngModel)]="usuarioActual.rol_id" name="rol_id">
-                </label>
-                <button type="button" (click)="actualizarUsuario()">Actualizar</button>
-                <button type="button" (click)="cancelarEdicion()">Cancelar</button>
-            </form>
-        </div>
+    <div *ngIf="usuarioActual" class="edit-form">
+        <h3>Editar Usuario</h3>
+        <form>
+            <label>
+                Nombre de Usuario:
+                <input [(ngModel)]="usuarioActual.nombre_usuario" name="nombre_usuario">
+            </label>
+            <label>
+                Identificación:
+                <input [(ngModel)]="usuarioActual.identificacion" name="identificacion">
+            </label>
+            <label>
+                Nombre Completo:
+                <input [(ngModel)]="usuarioActual.nombre_completo" name="nombre_completo">
+            </label>
+            <label>
+                Correo Electrónico:
+                <input [(ngModel)]="usuarioActual.correo_electronico" name="correo_electronico">
+            </label>
+            <label>
+                Celular:
+                <input [(ngModel)]="usuarioActual.celular" name="celular">
+            </label>
+            <label>
+                Rol ID:
+                <input [(ngModel)]="usuarioActual.rol_id" name="rol_id">
+            </label>
+            <button type="button" (click)="actualizarUsuario()">Actualizar</button>
+            <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+        </form>
     </div>
+</div>
 
-
+        

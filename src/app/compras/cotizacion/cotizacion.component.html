@@ -1,1 +1,72 @@
-<p>cotizacion works!</p>
+<div class="container">
+  <h2>Listado de Cotizaciones</h2>
+
+  <!-- Botón para agregar nueva cotización -->
+  <button (click)="mostrarFormularioNuevo()">Agregar Nueva Cotización</button>
+
+  <!-- Tabla para mostrar las cotizaciones -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titular</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cotizacion of cotizaciones">
+        <td>{{ cotizacion.id }}</td>
+        <td>{{ cotizacion.titular }}</td>
+        <td>{{ cotizacion.fecha }}</td>
+        <td>{{ cotizacion.total }}</td>
+        <td>{{ cotizacion.descripcion }}</td>
+        <td>
+          <button (click)="mostrarFormularioEditar(cotizacion)">Editar</button>
+          <button (click)="eliminarCotizacion(cotizacion.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Formulario para editar o agregar cotización -->
+  <div *ngIf="cotizacionActual !== null">
+    <h3>{{ creandoNuevo ? 'Agregar Nueva Cotización' : 'Editar Cotización' }}</h3>
+    <form (ngSubmit)="guardarCotizacion()">
+      <label for="titular">Titular:</label>
+      <input type="text" id="titular" [(ngModel)]="cotizacionActual.titular" name="titular" required>
+
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" [(ngModel)]="cotizacionActual.fecha" name="fecha" required>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" [(ngModel)]="cotizacionActual.descripcion" name="descripcion"></textarea>
+
+      <!-- Formulario para agregar productos -->
+      <div *ngFor="let detalle of cotizacionActual.detalles">
+        <label for="producto_id">Producto:</label>
+        <select [(ngModel)]="detalle.producto_id" name="producto_id" (change)="actualizarPrecio(detalle)" required>
+          <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+        </select>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" [(ngModel)]="detalle.cantidad" name="cantidad" (change)="actualizarPrecio(detalle)" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" [(ngModel)]="detalle.precio" name="precio" disabled>
+
+        <label for="subtotal">Subtotal:</label>
+        <input type="number" id="subtotal" [value]="detalle.cantidad * detalle.precio" disabled>
+      </div>
+
+      <button type="button" (click)="agregarDetalle()">Agregar Producto</button>
+      <button type="submit">{{ creandoNuevo ? 'Guardar' : 'Actualizar' }}</button>
+      <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+    </form>
+  </div>
+</div>
+
+  
+  

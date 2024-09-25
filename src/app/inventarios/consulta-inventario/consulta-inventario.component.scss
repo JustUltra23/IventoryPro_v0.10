@@ -1,0 +1,80 @@
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+   
+  .container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .container table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+  }
+  
+  .container th, .container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .container th {
+    background-color: #f2f2f2;
+  }
+  
+  .container td {
+    background-color: #fff;
+  }
+  
+  .container td:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .container form {
+    margin-top: 15px;
+  }
+  
+  .container form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .container form input, .container form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .container form button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: rgb(50, 51, 53);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .container form button:hover {
+    background-color: rgb(167, 163, 163);
+    color: black;
+  }
+  
+  .container form button:last-child {
+    margin-right: 0;
+  }
+  
+  

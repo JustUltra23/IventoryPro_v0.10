@@ -16,6 +16,7 @@ $correoElectronico = $params->correo_electronico;
 $celular = $params->celular;
 $rolId = $params->rol_id;
 
+
 $insertar = "INSERT INTO usuarios (nombre_usuario, identificacion, contrasena, nombre_completo, correo_electronico, celular, rol_id) VALUES ('$nombreUsuario', '$identificacion', '$contrasena', '$nombreCompleto', '$correoElectronico', '$celular', '$rolId')";
 
 if (mysqli_query($conexion, $insertar)) {

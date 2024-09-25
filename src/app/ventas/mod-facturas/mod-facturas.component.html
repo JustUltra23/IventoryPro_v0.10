@@ -1,0 +1,77 @@
+<div class="container">
+  <h2>Modificar Factura</h2>
+
+  <!-- Búsqueda de la venta por ID -->
+  <div class="form-group">
+    <label for="ventaId">ID de la Venta</label>
+    <input type="number" [(ngModel)]="ventaId" class="form-control" id="ventaId" placeholder="Ingrese el ID de la venta">
+    <button (click)="buscarVenta()" class="btn btn-primary mt-2" [disabled]="cargando">Buscar</button>
+  </div>
+
+  <!-- Mensaje de error o éxito -->
+  <div *ngIf="mensaje" class="alert alert-info">{{ mensaje }}</div>
+
+  <!-- Mostrar detalles de la venta si existe -->
+  <div *ngIf="venta">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID Venta</th>
+          <th>Fecha</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ venta.id }}</td>
+          <td>{{ venta.fecha }}</td>
+          <td>{{ totalVenta }}</td>
+          <td>
+            <button (click)="modificarVenta()" class="btn btn-warning" [disabled]="editando">Modificar</button>
+            <button (click)="eliminarVenta()" class="btn btn-danger" [disabled]="cargando">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mostrar detalles para modificar si se está editando -->
+  <div *ngIf="editando">
+    <h3>Detalles de la Venta</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Producto EAN</th>
+          <th>Cantidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detalle of detallesVenta; let i = index">
+          <td>
+            <input [(ngModel)]="detalle.codigo_ean" class="form-control" type="text" [disabled]="!detalle.editando">
+          </td>
+          <td>
+            <input [(ngModel)]="detalle.cantidad" class="form-control" type="number" [disabled]="!detalle.editando">
+          </td>
+          <td>
+            <button class="btn btn-success" (click)="activarEdicion(detalle)">Cambiar</button>
+            <button class="btn btn-danger" (click)="eliminarDetalle(detalle.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="form-group">
+      <button (click)="guardarVenta()" class="btn btn-primary" [disabled]="cargando">Guardar</button>
+      <button (click)="cancelarEdicion()" class="btn btn-secondary">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  
+  
+  
+  
+  

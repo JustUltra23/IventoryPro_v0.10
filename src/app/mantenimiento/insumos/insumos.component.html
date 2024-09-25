@@ -1,0 +1,76 @@
+<div class="container">
+    <h2>Inventario de Insumos</h2>
+  
+    <!-- Formulario para agregar/editar insumos -->
+    <div class="form-container">
+      <form (submit)="guardarInsumo()">
+        <div class="form-group">
+          <label for="nombre_insumo">Nombre del Insumo:</label>
+          <input type="text" id="nombre_insumo" [(ngModel)]="insumo.nombre_insumo" name="nombre_insumo" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <input type="text" id="descripcion" [(ngModel)]="insumo.descripcion" name="descripcion" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="cantidad">Cantidad:</label>
+          <input type="number" id="cantidad" [(ngModel)]="insumo.cantidad" name="cantidad" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="precio_unitario">Precio Unitario:</label>
+          <input type="number" id="precio_unitario" [(ngModel)]="insumo.precio_unitario" name="precio_unitario" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="proveedor">Proveedor:</label>
+          <input type="text" id="proveedor" [(ngModel)]="insumo.proveedor" name="proveedor" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="tienda_id">Tienda:</label>
+          <select id="tienda_id" [(ngModel)]="insumo.tienda_id" name="tienda_id" required>
+            <option *ngFor="let tienda of tiendas" [value]="tienda.id">{{ tienda.nombre }}</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  
+    <!-- Tabla para mostrar insumos -->
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Proveedor</th>
+            <th>Tienda</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let insumo of insumos">
+            <td>{{ insumo.id }}</td>
+            <td>{{ insumo.nombre_insumo }}</td>
+            <td>{{ insumo.descripcion }}</td>
+            <td>{{ insumo.cantidad }}</td>
+            <td>{{ insumo.precio_unitario }}</td>
+            <td>{{ insumo.proveedor }}</td>
+            <td>{{ obtenerNombreTienda(insumo.tienda_id) }}</td>
+            <td>
+              <button (click)="editarInsumo(insumo)" class="btn btn-warning">Editar</button>
+              <button (click)="eliminarInsumo(insumo.id)" class="btn btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

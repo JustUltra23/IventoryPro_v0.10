@@ -1,1 +1,69 @@
-<p>ordenes-compras works!</p>
+<div class="container">
+  <h2>Órdenes de Compra</h2>
+  
+  <form (ngSubmit)="crearOrdenCompra()" *ngIf="!ordenParaEditar">
+    <div>
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" [(ngModel)]="nuevaOrden.fecha" name="fecha" required>
+    </div>
+    <div>
+      <label for="articulo">Artículo</label>
+      <select id="articulo" [(ngModel)]="nuevaOrden.articulo" name="articulo" required>
+        <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="cantidad">Cantidad</label>
+      <input type="number" id="cantidad" [(ngModel)]="nuevaOrden.cantidad" name="cantidad" required>
+    </div>
+    <button type="submit">Crear Orden</button>
+  </form>
+  
+  <form (ngSubmit)="actualizarOrdenCompra()" *ngIf="ordenParaEditar">
+    <div>
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" [(ngModel)]="ordenParaEditar.fecha" name="fecha" required>
+    </div>
+    <div>
+      <label for="articulo">Artículo</label>
+      <select id="articulo" [(ngModel)]="ordenParaEditar.articulo" name="articulo" required>
+        <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="cantidad">Cantidad</label>
+      <input type="number" id="cantidad" [(ngModel)]="ordenParaEditar.cantidad" name="cantidad" required>
+    </div>
+    <button type="submit">Actualizar Orden</button>
+    <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+  </form>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Producto</th>
+        <th>Proveedor</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orden of ordenesCompras">
+        <td>{{ orden.fecha }}</td>
+        <td>{{ orden.producto_nombre }}</td>
+        <td>{{ orden.proveedor_nombre }}</td>
+        <td>{{ orden.cantidad }}</td>
+        <td>
+          <button (click)="iniciarEdicion(orden)">Editar</button>
+          <button (click)="eliminarOrdenCompra(orden.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+  

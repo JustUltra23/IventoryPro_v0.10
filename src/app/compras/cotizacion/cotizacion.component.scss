@@ -1,0 +1,126 @@
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff; /* Blanco */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      font-size: 35px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    button {
+      margin-bottom: 10px;
+      padding: 8px 16px;
+      background-color: #007bff; /* Azul claro */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #0056b3; /* Azul oscuro */
+      }
+    }
+  
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+  
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+  
+      th {
+        background-color: #f2f2f2; /* Gris claro */
+      }
+  
+      td {
+        background-color: #fff;
+  
+        &:nth-child(odd) {
+          background-color: #f9f9f9; /* Gris más claro */
+        }
+      }
+  
+      button {
+        margin: 0 5px;
+        padding: 6px 12px;
+        background-color: #dc3545; /* Rojo */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #c82333; /* Rojo oscuro */
+        }
+      }
+    }
+  
+    form {
+      margin-top: 15px;
+  
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+  
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1.5px solid #c7bebe; /* Gris claro */
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+  
+      input:focus,
+      input:valid,
+      textarea:focus,
+      textarea:valid,
+      select:focus,
+      select:valid {
+        border-color: #4070f4; /* Azul */
+      }
+  
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      button {
+        margin-right: 10px;
+        padding: 10px;
+        background-color: rgb(50, 51, 53); /* Gris oscuro */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: rgb(167, 163, 163); /* Gris más claro */
+          color: black;
+        }
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  

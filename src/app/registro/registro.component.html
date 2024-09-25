@@ -33,12 +33,12 @@
       <div class="input-box">
         <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" [(ngModel)]="user.confirmar_contrasena" placeholder="Confirma tu contraseña" required>
       </div>
-      <div class="policy">
-        <input type="checkbox" id="terminos" name="terminos" required>
-        <h3><a href="#">Yo Acepto Terminos y Condiciones</a></h3>
-      </div>
+      <div *ngIf="passwordMismatch" class="error-message">Las contraseñas no coinciden.</div>
+      <div *ngIf="emailExists" class="error-message">El correo electrónico ya está registrado.</div>
+      <div *ngIf="userExists" class="error-message">El nombre de usuario ya está registrado.</div>
+      <div *ngIf="idExists" class="error-message">La identificación ya está registrada.</div>
       <div class="input-box button">
-        <input type="submit" value="Registrar ahora">
+        <input type="submit" value="Registrar ahora" [disabled]="registroForm.invalid || passwordMismatch">
       </div>
       <div class="text">
         <h3>Ya tienes una cuenta? <a href="#">Ingresa ahora</a></h3>
@@ -47,6 +47,7 @@
   </div>
 </body>
 </html>
+
 
 
 

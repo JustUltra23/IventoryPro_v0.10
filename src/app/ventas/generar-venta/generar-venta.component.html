@@ -1,0 +1,102 @@
+<div class="container">
+    <h2>Ventas</h2>
+    
+    <!-- Store and Date -->
+    <div class="form-group">
+      <label for="tienda">Tienda:</label>
+      <select id="tienda" [(ngModel)]="tiendaSeleccionada" name="tienda" required>
+        <option *ngFor="let tienda of tiendas" [value]="tienda.id">{{ tienda.nombre }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" [(ngModel)]="fechaHora" name="fecha" required>
+    </div>
+
+    <!-- Vendedor Info -->
+    <div class="form-group">
+        <label for="vendedor">Vendedor:</label>
+        <input type="text" id="vendedor" [(ngModel)]="identificacionVendedor" name="vendedor" (blur)="buscarVendedor()" required>
+        </div>
+      
+        <div *ngIf="vendedor">
+          <p><strong>Vendedor:</strong> {{ vendedor.nombre_completo }}</p>
+        </div>
+    <!-- Customer Info -->
+    <div class="form-group">
+      <label for="cliente">Identificación Cliente:</label>
+      <input type="text" id="cliente" [(ngModel)]="clienteIdentificacion" name="cliente" (blur)="buscarCliente()" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="nombreCliente">Nombre del Cliente:</label>
+      <input type="text" id="nombreCliente" [(ngModel)]="nombreCliente" name="nombreCliente" [readonly]="clienteExiste">
+    </div>
+    
+    <div class="form-group">
+      <label for="celularCliente">Celular de Contacto:</label>
+      <input type="text" id="celularCliente" [(ngModel)]="celularCliente" name="celularCliente" [readonly]="clienteExiste">
+    </div>
+    
+    <div class="form-group">
+      <label for="emailCliente">Email:</label>
+      <input type="email" id="emailCliente" [(ngModel)]="emailCliente" name="emailCliente" [readonly]="clienteExiste">
+    </div>
+  
+    <!-- Products Form -->
+    <div class="product-entry">
+      <label for="ean">EAN Producto:</label>
+      <input type="text" id="ean" [(ngModel)]="ean" name="ean" (blur)="buscarProductoPorEAN()" required>
+  
+      <label for="descripcion">Descripción Producto:</label>
+      <input type="text" id="descripcion" [value]="producto?.nombre" readonly>
+  
+      <label for="cantidad">Cantidades:</label>
+      <input type="number" id="cantidad" [(ngModel)]="cantidad" name="cantidad" min="1" required>
+  
+      <label for="precioUnd">Valor Unitario:</label>
+      <input type="text" id="precioUnd" [value]="producto?.precio | currency" readonly>
+  
+      <button type="button" (click)="agregarProducto()">Agregar Producto</button>
+    </div>
+  
+    <!-- Product List -->
+    <div *ngIf="productosVenta.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>EAN</th>
+            <th>Descripción</th>
+            <th>Cantidades</th>
+            <th>Valor Unitario</th>
+            <th>Valor Total</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of productosVenta; let i = index">
+            <td>{{ item.ean }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.cantidad }}</td>
+            <td>{{ item.precio | currency }}</td>
+            <td>{{ item.total | currency }}</td>
+            <td><button (click)="eliminarProducto(item)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Total and Finalize -->
+    <div class="totals">
+      <p>Subtotal IVA incluido: {{ calcularSubtotal() | currency }}</p>
+      <p>Total IVA incluido: {{ calcularTotalVenta() | currency }}</p>
+    </div>
+  
+    <button (click)="registrarVenta()">Finalizar Venta</button>
+  </div>
+  
+
+  
+  
+  

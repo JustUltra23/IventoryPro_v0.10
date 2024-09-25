@@ -1,1 +1,50 @@
-<p>consulta-inventario works!</p>
+<div class="container">
+  <h2>Consulta de Inventario</h2>
+  <form (ngSubmit)="onFilterChange()">
+    <div>
+      <label for="tienda_id">Tienda:</label>
+      <select id="tienda_id" [(ngModel)]="filters.tienda_id" name="tienda_id">
+        <option value="">Todas las tiendas</option>
+        <option *ngFor="let tienda of tiendas" [value]="tienda.id">{{ tienda.nombre }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="codigo_ean">EAN:</label>
+      <input type="text" id="codigo_ean" [(ngModel)]="filters.codigo_ean" name="codigo_ean">
+    </div>
+    <button type="submit">Filtrar</button>
+  </form>
+
+  <div *ngIf="!inventario.length">
+    <p>No hay registros para la tienda seleccionada o producto.</p>
+  </div>
+
+  <table *ngIf="inventario.length">
+    <thead>
+      <tr>
+        <th>Inventario ID</th>
+        <th>Tienda</th>
+        <th>Producto</th>
+        <th>EAN</th>
+        <th>Stock</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventario">
+        <td>{{ item.inventario_id }}</td>
+        <td>{{ item.tienda_nombre }}</td>
+        <td>{{ item.producto_nombre }}</td>
+        <td>{{ item.codigo_ean }}</td>
+        <td>{{ item.stock }}</td>
+        <td>{{ item.precio }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  
+  
+  
+  

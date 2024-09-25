@@ -1,1 +1,72 @@
-<p>recepcion-mercancia works!</p>
+<div class="container">
+  <h2>Listado de Recepciones</h2>
+
+  <!-- Formulario para Agregar/Editar Recepción -->
+  <div *ngIf="recepcionActual">
+    <h3>{{ creandoNuevo ? 'Agregar Nueva Recepción' : 'Editar Recepción' }}</h3>
+    <form (ngSubmit)="guardarRecepcion()">
+      <label for="tiendaID">Tienda:</label>
+      <select id="tiendaID" name="tiendaID" [(ngModel)]="recepcionActual.tienda_id" required>
+        <option *ngFor="let tienda of tiendas" [value]="tienda.id">{{ tienda.nombre }}</option>
+      </select>
+
+      <label for="productoID">Producto:</label>
+      <select id="productoID" name="productoID" [(ngModel)]="recepcionActual.producto_id" required>
+        <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+      </select>
+
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" name="cantidad" [(ngModel)]="recepcionActual.cantidad" required>
+
+      <label for="fechaRecepcion">Fecha Recepción:</label>
+      <input type="date" id="fechaRecepcion" name="fechaRecepcion" [(ngModel)]="recepcionActual.fecha_recepcion" required>
+
+      <label for="estado">Estado:</label>
+      <input type="text" id="estado" name="estado" [(ngModel)]="recepcionActual.estado" required>
+
+      <button type="submit">{{ creandoNuevo ? 'Guardar' : 'Actualizar' }}</button>
+      <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+    </form>
+  </div>
+
+  <!-- Botón para Agregar Nueva Recepción -->
+  <button (click)="mostrarFormularioNuevo()">Agregar Nueva Recepción</button>
+
+  <!-- Tabla de Recepciones -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tienda</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Fecha Recepción</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recepcion of recepciones">
+        <td>{{ recepcion.id }}</td>
+        <td>{{ recepcion.tienda_nombre }}</td>
+        <td>{{ recepcion.producto_nombre }}</td>
+        <td>{{ recepcion.cantidad }}</td>
+        <td>{{ recepcion.fecha_recepcion }}</td>
+        <td>{{ recepcion.estado }}</td>
+        <td>
+          <button (click)="mostrarFormularioEditar(recepcion)">Editar</button>
+          <button (click)="eliminarRecepcion(recepcion.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+  

@@ -1,34 +1,39 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>LOGIN IVENTORY PRO</title>
-      <link rel="stylesheet" href="login.component.css">
-   </head>
-   <body>
-      <div class="container">
-         <div class="text">
-            Sign In IventoryPro
-         </div>
-         <form action="#">
-            <div class="data">
-               <label>Correo</label>
-               <input type="text" required>
-            </div>
-            <div class="data">
-               <label>Contraseña</label>
-               <input type="password" required>
-            </div>
-            <div class="forgot-pass">
-               <a href="#">Olvidaste la contraseña?</a>
-            </div>
-            <div class="input-box button">
-               <input type="submit" value="login">
-             </div>
-            <div class="signup-link">
-               No estas registrado? <a href="#">Registrate Ahora</a>
-            </div>
-         </form>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Aplicación</title>
+</head>
+<body>
+   <div class="container">
+      <div class="text">
+        <h2>Iniciar Sesión</h2>
       </div>
-   </body>
+      <form (ngSubmit)="login()">
+        <div class="data">
+          <label>Correo</label>
+          <input type="text" [(ngModel)]="email" name="email" required>
+        </div>
+        <div class="data">
+          <label>Contraseña</label>
+          <div class="password-input">
+            <input [type]="isPasswordVisible ? 'text' : 'password'" [(ngModel)]="password" name="password" required>
+            <button type="button" (click)="togglePasswordVisibility()" class="toggle-password">
+              <img [src]="isPasswordVisible ? 'assets/img/ojo1.png' : 'assets/img/ojo.png'" alt="Toggle Password Visibility" />
+            </button>
+          </div>
+        </div>
+        <div class="input-box button">
+          <input type="submit" value="Iniciar Sesión">
+        </div>
+        <div class="signup-link">
+          No estás registrado? <a routerLink="/registro">Regístrate Ahora</a>
+        </div>
+      </form>
+    </div>
+</body>
 </html>
+
+

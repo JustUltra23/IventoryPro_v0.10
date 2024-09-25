@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,10 @@ export class UsuarioService {
   edit(datos: any) {
     return this.http.post(`${this.url}editar_usuarios.php`, datos);
   }
+
+  validarDatos(user: any): Observable<any> {
+    return this.http.post<any>(`${this.url}/validar_usuario.php`, user);
+  }
+  
 }
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ComprasService {
   constructor(private http: HttpClient) { }
 
   consultarProveedores() {
-    return this.http.get(`${this.url}consulta_proveedores.php`);
+    return this.http.get<any[]>(`${this.url}consulta_proveedores.php`);
   }
 
   insertarProveedor(proveedor: any) {

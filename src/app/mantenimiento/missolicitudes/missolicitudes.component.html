@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Mis Solicitudes de Mantenimiento</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Tienda</th>
+          <th>Fecha</th>
+          <th>Descripción</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitud of solicitudes">
+          <td>{{ solicitud.nombreTienda }}</td>
+          <td>{{ solicitud.fecha_solicitud | date }}</td>
+          <td>{{ solicitud.descripcion }}</td>
+          <td>{{ solicitud.estado }}</td>
+          <td>
+            <button (click)="editarSolicitud(solicitud)">Editar</button>
+            <button (click)="eliminarSolicitud(solicitud.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

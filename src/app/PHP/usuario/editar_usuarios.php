@@ -8,7 +8,8 @@ $params = json_decode($json);
 
 require("../conexion.php");
 
-$editar = "UPDATE usuarios SET nombre_usuario='$params->nombre_usuario', identificacion='$params->identificacion', contrasena=sha1('$params->contrasena'), nombre_completo='$params->nombre_completo', correo_electronico='$params->correo_electronico', celular='$params->celular', rol_id='$params->rol_id' WHERE id=$params->id";
+// Actualiza solo los campos permitidos, sin la contraseña
+$editar = "UPDATE usuarios SET nombre_usuario='$params->nombre_usuario', identificacion='$params->identificacion', nombre_completo='$params->nombre_completo', correo_electronico='$params->correo_electronico', celular='$params->celular', rol_id='$params->rol_id' WHERE id=$params->id";
 
 if (mysqli_query($conexion, $editar)) {
     $response = new stdClass();
@@ -22,3 +23,4 @@ if (mysqli_query($conexion, $editar)) {
 
 echo json_encode($response);
 ?>
+

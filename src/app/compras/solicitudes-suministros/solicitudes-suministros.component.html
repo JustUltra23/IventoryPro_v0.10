@@ -1,1 +1,38 @@
-<p>solicitudes-suministros works!</p>
+<div class="container">
+    <h2>Solicitudes de Compra</h2>
+    
+    <form (ngSubmit)="crearSolicitud()">
+      <div>
+        <label for="fecha_solicitud">Fecha de Solicitud</label>
+        <input type="date" id="fecha_solicitud" [(ngModel)]="nuevaSolicitud.fecha_solicitud" name="fecha_solicitud" required>
+      </div>
+      <div>
+        <label for="materiales">Materiales</label>
+        <textarea id="materiales" [(ngModel)]="nuevaSolicitud.materiales" name="materiales" required></textarea>
+      </div>
+      <button type="submit">Crear Solicitud</button>
+    </form>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha de Solicitud</th>
+          <th>Materiales</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitud of solicitudes">
+          <td>{{ solicitud.fecha_solicitud }}</td>
+          <td>{{ solicitud.materiales }}</td>
+          <td>{{ solicitud.estado }}</td>
+          <td>
+            <button (click)="aprobarSolicitud(solicitud.id)">Aprobar</button>
+            <button (click)="cancelarSolicitud(solicitud.id)">Cancelar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

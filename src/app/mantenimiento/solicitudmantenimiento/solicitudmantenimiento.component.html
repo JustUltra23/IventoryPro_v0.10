@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Generar Solicitud de Mantenimiento</h2>
+
+  <form (ngSubmit)="generarSolicitud()">
+    <!-- Campos del formulario -->
+    <label for="tienda_id">Seleccionar Tienda</label>
+    <select [(ngModel)]="nuevaSolicitud.tienda_id" name="tienda_id" required>
+      <option *ngFor="let tienda of tiendas" [value]="tienda.id">{{ tienda.nombre }}</option>
+    </select>
+
+    <label for="fecha_solicitud">Fecha de Solicitud</label>
+    <input type="date" [(ngModel)]="nuevaSolicitud.fecha_solicitud" name="fecha_solicitud" required>
+
+    <label for="descripcion">Descripción</label>
+    <textarea [(ngModel)]="nuevaSolicitud.descripcion" name="descripcion" required></textarea>
+
+    <button type="submit">Generar Solicitud</button>
+  </form>
+
+  <!-- Mensaje de éxito o error -->
+  <div *ngIf="mensaje" class="alert" [ngClass]="{ 'alert-success': success, 'alert-danger': !success }">
+    {{ mensaje }}
+  </div>
+</div>
+
