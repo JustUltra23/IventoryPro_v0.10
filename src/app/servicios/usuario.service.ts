@@ -31,5 +31,8 @@ export class UsuarioService {
     return this.http.post<any>(`${this.url}/validar_usuario.php`, user);
   }
   
+  getDashboardData(): Observable<any> {
+    return this.http.get<any>(`${this.url}get_dashboard_data.php`);
+  }
 }
 

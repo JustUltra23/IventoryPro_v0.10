@@ -29,7 +29,7 @@ export class AuthService {
     try {
       const response: any = await this.http.post(this.url, { email, password }).toPromise();
 
-      if (response && response.rol_id) {
+      if (response && response.user_id && response.identificacion && response.rol_id) {  //25/09/2024 AGREGUE RESPONSE ID E IDENTIFICACION PARA QUE GUARDE DEL USUARIO
         await this.storage.set('user', response);
         console.log('Ingreso Exitoso, ID de Rol Almacenado:', response.rol_id);
         this.setLoggedIn(true, response.rol_id);
@@ -81,6 +81,14 @@ export class AuthService {
         resolve(false); // Si no está inicializado, considera que no está autenticado
       }
     });
+  }
+
+  // FUNCION PARA TRAER EL USER
+  async getUser(): Promise<any> {
+  if (this.storageInitialized) {
+    return await this.storage.get('user'); // Devuelve el objeto del usuario
+  }
+  return null;
   }
   
 

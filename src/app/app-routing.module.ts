@@ -22,7 +22,6 @@ import { RecepcionMercanciaComponent } from './inventarios/recepcion-mercancia/r
 import { GenerarVentaComponent } from './ventas/generar-venta/generar-venta.component';
 import { ModFacturasComponent } from './ventas/mod-facturas/mod-facturas.component';
 import { VentasAcumuladasComponent } from './ventas/ventas-acumuladas/ventas-acumuladas.component';
-import { PQRComponent } from './humana/pqr/pqr.component';
 import { InsumosComponent } from './mantenimiento/insumos/insumos.component';
 import { MissolicitudesComponent } from './mantenimiento/missolicitudes/missolicitudes.component';
 import { SolicitudmantenimientoComponent } from './mantenimiento/solicitudmantenimiento/solicitudmantenimiento.component';
@@ -32,6 +31,12 @@ import { ConciliacionesComponent } from './contabilidad/conciliaciones/conciliac
 import { DatosEmpleadoComponent } from './humana/datos-empleado/datos-empleado.component';
 import { AuthGuard } from './auth.guard';
 import { RoleGuard } from './role.guard';
+import { PqrComponent } from './humana/pqr/pqr.component';
+import { ReportesComponent } from './administracion/reportes/reportes.component';
+import { SolicitudesComponent } from './administracion/solicitudes/solicitudes.component';
+import { RolesComponent } from './administracion/roles/roles.component';
+import { TiendasComponent } from './administracion/tiendas/tiendas.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -43,7 +48,15 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       { path: 'dashboard', component: DashboardComponent},
-      { path: 'administracion', component: AdministracionComponent },
+      { path: 'administracion', 
+        component: AdministracionComponent,
+        children: [
+          {path:'reportes', component: ReportesComponent},
+          {path:'solicitudes', component: SolicitudesComponent},
+          {path:'roles', component: RolesComponent},
+          {path:'tiendas', component: TiendasComponent},
+        ]
+       },
       { path: 'contabilidad', 
         component: ContabilidadComponent, 
         canActivate: [RoleGuard], // Aplicar RoleGuard
@@ -91,7 +104,7 @@ const routes: Routes = [
       { path: 'humana', 
         component: HumanaComponent, 
         children: [
-          {path: 'pqr', component: PQRComponent},
+          {path: 'pqr', component: PqrComponent},
           {path:'datos', component: DatosEmpleadoComponent},
         ]
       },

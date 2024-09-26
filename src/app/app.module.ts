@@ -34,12 +34,16 @@ import { ModFacturasComponent } from './ventas/mod-facturas/mod-facturas.compone
 import { SolicitudmantenimientoComponent } from './mantenimiento/solicitudmantenimiento/solicitudmantenimiento.component';
 import { MissolicitudesComponent } from './mantenimiento/missolicitudes/missolicitudes.component';
 import { InsumosComponent } from './mantenimiento/insumos/insumos.component';
-import { PQRComponent } from './humana/pqr/pqr.component';
 import { DatosEmpleadoComponent } from './humana/datos-empleado/datos-empleado.component';
 import { ConciliacionesComponent } from './contabilidad/conciliaciones/conciliaciones.component';
 import { EstadosFinancierosComponent } from './contabilidad/estados-financieros/estados-financieros.component';
 import { ImpuestosComponent } from './contabilidad/impuestos/impuestos.component';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { PqrComponent } from './humana/pqr/pqr.component';
+import { TiendasComponent } from './administracion/tiendas/tiendas.component';
+import { RolesComponent } from './administracion/roles/roles.component';
+import { SolicitudesComponent } from './administracion/solicitudes/solicitudes.component';
+import { ReportesComponent } from './administracion/reportes/reportes.component';
 
 
 @NgModule({
@@ -73,11 +77,16 @@ ModFacturasComponent,
 SolicitudmantenimientoComponent,
 MissolicitudesComponent,
 InsumosComponent,
-PQRComponent,
+PqrComponent,
 DatosEmpleadoComponent,
 ConciliacionesComponent,
 EstadosFinancierosComponent,
-ImpuestosComponent
+ImpuestosComponent,
+TiendasComponent,
+RolesComponent,
+SolicitudesComponent,
+ReportesComponent
+
 ],
 imports: [
 BrowserModule,

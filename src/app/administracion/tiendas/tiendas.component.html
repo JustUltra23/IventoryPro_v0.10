@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Gestión de Tiendas</h2>
+  
+    <!-- Formulario para agregar/editar tienda -->
+    <form (ngSubmit)="guardarTienda()">
+      <input type="hidden" [(ngModel)]="tienda.id" name="id">
+      
+      <div>
+        <label for="nombre">Nombre de la tienda:</label>
+        <input type="text" [(ngModel)]="tienda.nombre" name="nombre" required>
+      </div>
+  
+      <div>
+        <label for="direccion">Dirección:</label>
+        <input type="text" [(ngModel)]="tienda.direccion" name="direccion" required>
+      </div>
+  
+      <button type="submit">{{ tienda.id ? 'Editar' : 'Agregar' }} Tienda</button>
+    </form>
+  
+    <!-- Tabla de tiendas -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of tiendas">
+          <td>{{ t.id }}</td>
+          <td>{{ t.nombre }}</td>
+          <td>{{ t.direccion }}</td>
+          <td>
+            <button (click)="editarTienda(t)">Editar</button>
+            <button (click)="eliminarTienda(t.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

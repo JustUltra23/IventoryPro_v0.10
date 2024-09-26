@@ -1,1 +1,103 @@
-<p>estados-financieros works!</p>
+<div class="container">
+    <h2>Estados Financieros</h2>
+  
+    <form (ngSubmit)="guardarEstadoFinanciero()">
+      <div class="form-group">
+        <label>Tipo de Estado:</label>
+        <select [(ngModel)]="estadoFinanciero.tipo_estado" name="tipo_estado" required>
+          <option value="">Seleccione un tipo</option>
+          <option value="balance_general">Balance General</option>
+          <option value="estado_resultados">Estado de Resultados</option>
+          <option value="flujo_efectivo">Flujo de Efectivo</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="usuario_id">Usuario (ID):</label>
+        <input type="number" id="usuario_id" [(ngModel)]="estadoFinanciero.usuario_id" name="usuario_id" required readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Fecha de Generación:</label>
+        <input type="date" [(ngModel)]="estadoFinanciero.fecha_generacion" name="fecha_generacion" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Fecha Inicio del Periodo:</label>
+        <input type="date" [(ngModel)]="estadoFinanciero.fecha_inicio_periodo" name="fecha_inicio_periodo" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Fecha Fin del Periodo:</label>
+        <input type="date" [(ngModel)]="estadoFinanciero.fecha_fin_periodo" name="fecha_fin_periodo" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="tienda_id">Seleccionar Tienda</label>
+            <select [(ngModel)]="estadoFinanciero.tienda_id" name="tienda_id" required>
+                <option *ngFor="let tienda of tiendas" [value]="tienda.id">{{ tienda.nombre }}</option>
+            </select>
+      </div>
+  
+      <div class="form-group">
+        <label>Ingresos:</label>
+        <input type="number" [(ngModel)]="estadoFinanciero.ingresos" name="ingresos" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Egresos:</label>
+        <input type="number" [(ngModel)]="estadoFinanciero.egresos" name="egresos" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Utilidad Neta:</label>
+        <input type="number" [(ngModel)]="estadoFinanciero.utilidad_neta" name="utilidad_neta">
+      </div>
+  
+      <div class="form-group">
+        <label>Saldo Final:</label>
+        <input type="number" [(ngModel)]="estadoFinanciero.saldo_final" name="saldo_final">
+      </div>
+  
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="limpiarFormulario()">Cancelar</button>
+    </form>
+  
+    <h3>Lista de Estados Financieros</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tipo Estado</th>
+          <th>Usuario ID</th>
+          <th>Fecha Generación</th>
+          <th>Fecha Inicio</th>
+          <th>Fecha Fin</th>
+          <th>Tienda</th>
+          <th>Ingresos</th>
+          <th>Egresos</th>
+          <th>Utilidad Neta</th>
+          <th>Saldo Final</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estado of estadosFinancieros">
+          <td>{{ estado.tipo_estado }}</td>
+          <td>{{ estado.usuario_id }}</td>
+          <td>{{ estado.fecha_generacion | date }}</td>
+          <td>{{ estado.fecha_inicio_periodo | date }}</td>
+          <td>{{ estado.fecha_fin_periodo | date }}</td>
+          <td>{{ estado.tienda_id }}</td> <!-- Aquí puedes mostrar el nombre de la tienda si tienes acceso -->
+          <td>{{ estado.ingresos }}</td>
+          <td>{{ estado.egresos }}</td>
+          <td>{{ estado.utilidad_neta }}</td>
+          <td>{{ estado.saldo_final }}</td>
+          <td>
+            <button (click)="editarEstadoFinanciero(estado.id)">Editar</button>
+            <button (click)="eliminarEstadoFinanciero(estado.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

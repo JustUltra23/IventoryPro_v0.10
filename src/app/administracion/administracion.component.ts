@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrl: './administracion.component.scss'
 })
 export class AdministracionComponent {
+  
+  mostrarComponente: string = '';
 
+  mostrarTiendas() {
+    this.mostrarComponente ='tiendas';
+  }
+
+  mostrarRoles() {
+    this.mostrarComponente ='roles';
+  }
+
+  mostrarSolicitudes() {
+    this.mostrarComponente ='solicitudes';
+  }
+
+  mostrarReportes() {
+    this.mostrarComponente ='reportes';
+  }
 }

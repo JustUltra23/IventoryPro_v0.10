@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrl: './contabilidad.component.scss'
 })
 export class ContabilidadComponent {
+  mostrarComponente: string = '';
 
+  mostrarConciliaciones(){
+    this.mostrarComponente ='conciliaciones';
+  }
+
+  mostrarEstados(){
+    this.mostrarComponente ='estados';
+  }
+
+  mostrarImpuestos(){
+    this.mostrarComponente ='impuestos';
+  }
 }

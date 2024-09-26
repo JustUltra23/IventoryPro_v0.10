@@ -7,49 +7,49 @@
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/dashboard">
           <span class="nav-link-text">Dashboard</span>
-          <img src="assets/img/dash.png" alt="Icono Dash" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/dash.png" alt="Icono Dash" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="isAllowedForAdministracion()">
         <a class="nav-link text-white" routerLink="/administracion">
           <span class="nav-link-text">Administración</span>
-          <img src="assets/img/admin.png" alt="Icono Admin" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/admin.png" alt="Icono Admin" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="isAllowedForContabilidad()">
         <a class="nav-link text-white" routerLink="/contabilidad">
           <span class="nav-link-text">Contabilidad</span>
-          <img src="assets/img/conta.png" alt="Icono Conta" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/conta.png" alt="Icono Conta" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="isAllowedForVentas()">
         <a class="nav-link text-white" routerLink="/ventas">
           <span class="nav-link-text">Ventas</span>
-          <img src="assets/img/ventas.png" alt="Icono Ventas" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/ventas.png" alt="Icono Ventas" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="isAllowedForCompras()">
         <a class="nav-link text-white" routerLink="/compras">
           <span class="nav-link-text">Compras</span>
-          <img src="assets/img/compras.png" alt="Icono Compras" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/compras.png" alt="Icono Compras" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="isAllowedForInventarios()">
         <a class="nav-link text-white" routerLink="/inventarios">
           <span class="nav-link-text">Inventarios</span>
-          <img src="assets/img/inven.png" alt="Icono Inventarios" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/inven.png" alt="Icono Inventarios" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="isAllowedForMantenimiento()">
         <a class="nav-link text-white" routerLink="/mantenimiento">
           <span class="nav-link-text">Mantenimiento</span>
-          <img src="assets/img/mante.png" alt="Icono Mantenimiento" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/mante.png" alt="Icono Mantenimiento" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="isAllowedForHumanResources()">
         <a class="nav-link text-white" routerLink="/humana">
           <span class="nav-link-text">Gestion Humana</span>
-          <img src="assets/img/rh.png" alt="Icono RH" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/rh.png" alt="Icono RH" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item mt-3">
@@ -58,29 +58,59 @@
       <li class="nav-item" *ngIf="isAllowedForUsuarios()">
         <a class="nav-link text-white" routerLink="/usuarios">
           <span class="nav-link-text">Usuarios</span>
-          <img src="assets/img/perfil.png" alt="Icono Perfil" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/perfil.png" alt="Icono Perfil" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn">
         <a class="nav-link text-white" routerLink="/login">
           <span class="nav-link-text">Login</span>
-          <img src="assets/img/ingresar.png" alt="Icono Ingreso" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/ingresar.png" alt="Icono Ingreso" class="icono-izquierda">
         </a>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn">
         <a class="nav-link text-white" routerLink="/registro">
           <span class="nav-link-text">Registrarse</span>
-          <img src="assets/img/registrar.png" alt="Icono Registro" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/registrar.png" alt="Icono Registro" class="icono-izquierda">
         </a>
       </li>
       <!-- Botón de Cerrar Sesión -->
       <li class="nav-item" *ngIf="isLoggedIn">
         <a class="nav-link text-white" (click)="logout()">
           <span class="nav-link-text">Cerrar Sesión</span>
-          <img src="assets/img/salir.png" alt="Icono Cerrar Sesión" class="icono-izquierda" style="position: absolute;left: 20px; top: 50%; transform: translateY(-50%);">
+          <img src="assets/img/salir.png" alt="Icono Cerrar Sesión" class="icono-izquierda">
           </a>
       </li>
     </ul>
   </aside>
-  <router-outlet></router-outlet>
 
+   <router-outlet></router-outlet>
+
+  <!-- PENDIENTE DE AJUSTE CARTAS 26/09/2024
+   
+    <div class="dashboard">
+    <div class="card">
+      <div class="card-title">Clientes</div>
+      <div class="card-value">{{ totalClientes }}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Tiendas</div>
+      <div class="card-value">{{ totalTiendas }}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Roles</div>
+      <div class="card-value">{{ totalRoles }}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Proveedores</div>
+      <div class="card-value">{{ totalProveedores }}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Productos</div>
+      <div class="card-value">{{ totalProductos }}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Usuarios</div>
+      <div class="card-value">{{ totalUsuarios}}</div>
+    </div>
+  </div> -->
+  

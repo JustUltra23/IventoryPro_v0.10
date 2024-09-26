@@ -1,1 +1,92 @@
-<p>datos-empleado works!</p>
+<div class="container">
+    <h2>Mis Datos de Empleado</h2>
+  
+    <!-- Formulario para crear/editar los datos del empleado -->
+    <form (ngSubmit)="isEditing ? actualizarEmpleado() : crearEmpleado()">
+      <div class="form-group">
+        <label for="usuario_id">Usuario ID:</label>
+        <input type="number" id="usuario_id" [(ngModel)]="empleado.usuario_id" name="usuario_id" required readonly>
+      </div>
+  
+      <div class="form-group">
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" [(ngModel)]="empleado.fecha_nacimiento" name="fecha_nacimiento" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" [(ngModel)]="empleado.direccion" name="direccion" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="estado_civil">Estado Civil:</label>
+        <select id="estado_civil" [(ngModel)]="empleado.estado_civil" name="estado_civil" required>
+          <option value="Soltero">Soltero</option>
+          <option value="Casado">Casado</option>
+          <option value="Divorciado">Divorciado</option>
+          <option value="Viudo">Viudo</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="fecha_ingreso">Fecha de Ingreso:</label>
+        <input type="date" id="fecha_ingreso" [(ngModel)]="empleado.fecha_ingreso" name="fecha_ingreso" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="familiar_emergencia">Familiar de Emergencia:</label>
+        <input type="text" id="familiar_emergencia" [(ngModel)]="empleado.familiar_emergencia" name="familiar_emergencia" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="relacion_familiar">Relación con el Familiar:</label>
+        <input type="text" id="relacion_familiar" [(ngModel)]="empleado.relacion_familiar" name="relacion_familiar" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="telefono_emergencia">Teléfono de Emergencia:</label>
+        <input type="tel" id="telefono_emergencia" [(ngModel)]="empleado.telefono_emergencia" name="telefono_emergencia" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">
+        {{ isEditing ? 'Actualizar Datos de Empleado' : 'Crear Datos de Empleado' }}
+      </button>
+    </form>
+  
+    <!-- Tabla para listar los datos del empleado -->
+    <div *ngIf="empleados.length > 0">
+      <h2>Listado de Empleados</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usuario ID</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Dirección</th>
+            <th>Estado Civil</th>
+            <th>Fecha de Ingreso</th>
+            <th>Familiar Emergencia</th>
+            <th>Relación Familiar</th>
+            <th>Teléfono Emergencia</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleado of empleados">
+            <td>{{ empleado.usuario_id }}</td>
+            <td>{{ empleado.fecha_nacimiento }}</td>
+            <td>{{ empleado.direccion }}</td>
+            <td>{{ empleado.estado_civil }}</td>
+            <td>{{ empleado.fecha_ingreso }}</td>
+            <td>{{ empleado.familiar_emergencia }}</td>
+            <td>{{ empleado.relacion_familiar }}</td>
+            <td>{{ empleado.telefono_emergencia }}</td>
+            <td>
+              <button (click)="editarEmpleado(empleado.id)" class="btn btn-warning">Editar</button>
+              <button (click)="eliminarEmpleado(empleado.id)" class="btn btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+  

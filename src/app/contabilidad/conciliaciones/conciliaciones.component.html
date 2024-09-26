@@ -1,1 +1,81 @@
-<p>conciliaciones works!</p>
+<div class="container">
+    <h2>Conciliaciones Bancarias</h2>
+  
+    <!-- Formulario para agregar/editar conciliaciones -->
+    <div class="form-container">
+      <form (submit)="guardarConciliacion()">
+        <div class="form-group">
+          <label for="fecha">Fecha de Conciliación:</label>
+          <input type="date" id="fecha" [(ngModel)]="conciliacion.fecha" name="fecha" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="cuenta_bancaria">Cuenta Bancaria:</label>
+          <input type="text" id="cuenta_bancaria" [(ngModel)]="conciliacion.cuenta_bancaria" name="cuenta_bancaria" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="usuario_id">Usuario (ID):</label>
+          <input type="number" id="usuario_id" [(ngModel)]="conciliacion.usuario_id" name="usuario_id" required readonly>
+        </div>
+  
+        <div class="form-group">
+          <label for="saldo_libros">Saldo en Libros:</label>
+          <input type="number" step="0.01" id="saldo_libros" [(ngModel)]="conciliacion.saldo_libros" name="saldo_libros" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="saldo_banco">Saldo en el Banco:</label>
+          <input type="number" step="0.01" id="saldo_banco" [(ngModel)]="conciliacion.saldo_banco" name="saldo_banco" required>
+        </div>
+  
+
+        <div class="form-group">
+          <label for="estado">Estado:</label>
+          <select id="estado" [(ngModel)]="conciliacion.estado" name="estado" required>
+            <option value="pendiente">Pendiente</option>
+            <option value="completada">Completada</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  
+    <!-- Tabla para mostrar conciliaciones -->
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Cuenta Bancaria</th>
+            <th>Usuario ID</th>
+            <th>Saldo Libros</th>
+            <th>Saldo Banco</th>
+            <th>Diferencia</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let conciliacion of conciliaciones">
+            <td>{{ conciliacion.id }}</td>
+            <td>{{ conciliacion.fecha }}</td>
+            <td>{{ conciliacion.cuenta_bancaria }}</td>
+            <td>{{ conciliacion.usuario_id }}</td>
+            <td>{{ conciliacion.saldo_libros }}</td>
+            <td>{{ conciliacion.saldo_banco }}</td>
+            <td>{{ conciliacion.diferencia }}</td>
+            <td>{{ conciliacion.estado }}</td>
+            <td>
+              <button (click)="editarConciliacion(conciliacion)" class="btn btn-warning">Editar</button>
+              <button (click)="eliminarConciliacion(conciliacion.id)" class="btn btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  

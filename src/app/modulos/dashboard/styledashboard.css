@@ -75,6 +75,10 @@ body {
     width: 40px; /* Tamaño igual a la altura de la letra */
     height: 40px;
     filter: invert();
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .nav-link-text {
@@ -92,5 +96,43 @@ body {
     margin-bottom: 20px;
 }
 
+
+/* ESTILO DE LAS CARTAS: */
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+
+  /* Hover effect */
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .card-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #555;
+  }
+}
 
 

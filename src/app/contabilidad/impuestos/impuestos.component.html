@@ -1,1 +1,69 @@
-<p>impuestos works!</p>
+<div class="container">
+    <h2>Gestión de Impuestos</h2>
+  
+    <form (ngSubmit)="guardarImpuesto()">
+      <div class="form-group">
+        <label>Tipo de Impuesto:</label>
+        <select [(ngModel)]="impuesto.tipo_impuesto" name="tipo_impuesto" required>
+          <option value="">Seleccione un tipo</option>
+          <option value="IVA">IVA</option>
+          <option value="impuesto_renta">Impuesto a la Renta</option>
+          <option value="retencion">Retención</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="periodo_fiscal">Periodo Fiscal:</label>
+        <input type="text" id="periodo_fiscal" [(ngModel)]="impuesto.periodo_fiscal" name="periodo_fiscal" required placeholder="Ej: 2024-Q3">
+      </div>
+  
+      <div class="form-group">
+        <label for="monto_calculado">Monto Calculado:</label>
+        <input type="number" id="monto_calculado" [(ngModel)]="impuesto.monto_calculado" name="monto_calculado" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
+        <input type="date" id="fecha_vencimiento" [(ngModel)]="impuesto.fecha_vencimiento" name="fecha_vencimiento" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select [(ngModel)]="impuesto.estado" name="estado">
+          <option value="pendiente">Pendiente</option>
+          <option value="pagado">Pagado</option>
+        </select>
+      </div>
+  
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="limpiarFormulario()">Cancelar</button>
+    </form>
+  
+    <h3>Lista de Impuestos</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Periodo Fiscal</th>
+          <th>Monto Calculado</th>
+          <th>Fecha Vencimiento</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let impuesto of impuestos">
+          <td>{{ impuesto.tipo_impuesto }}</td>
+          <td>{{ impuesto.periodo_fiscal }}</td>
+          <td>{{ impuesto.monto_calculado }}</td>
+          <td>{{ impuesto.fecha_vencimiento | date }}</td>
+          <td>{{ impuesto.estado }}</td>
+          <td>
+            <button (click)="editarImpuesto(impuesto.id)">Editar</button>
+            <button (click)="eliminarImpuesto(impuesto.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

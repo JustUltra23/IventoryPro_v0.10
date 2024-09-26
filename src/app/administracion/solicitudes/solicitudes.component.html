@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Solicitudes Empleados</h2>
+
+    <!-- Tabla para mostrar solicitudes -->
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario ID</th>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let solicitud of solicitudes">
+                    <td>{{ solicitud.id }}</td>
+                    <td>{{ solicitud.usuario_id }}</td>
+                    <td>{{ solicitud.descripcion }}</td>
+                    <td>{{ solicitud.fecha | date }}</td>
+                    <td>
+                        <select [(ngModel)]="solicitud.estado" (change)="seleccionarSolicitud(solicitud)">
+                            <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button (click)="actualizarEstado()" class="btn btn-primary">Actualizar Estado</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

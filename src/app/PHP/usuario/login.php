@@ -28,7 +28,7 @@ $email = mysqli_real_escape_string($conexion, $params->email);
 $contrasena = sha1($params->password); // Asegúrate de usar el mismo método de encriptación
 
 // Cambia la consulta para obtener el rol_id y el id del usuario
-$consulta = "SELECT id, rol_id FROM usuarios WHERE correo_electronico = '$email' AND contrasena = '$contrasena'";
+$consulta = "SELECT id, identificacion, rol_id FROM usuarios WHERE correo_electronico = '$email' AND contrasena = '$contrasena'";
 $result = mysqli_query($conexion, $consulta);
 
 // Verificar si la consulta se ejecutó correctamente
@@ -49,7 +49,8 @@ if (mysqli_num_rows($result) > 0) {
         'resultado' => 'Ok',
         'mensaje' => 'Inicio de sesión exitoso',
         'rol_id' => $usuario['rol_id'], // Añadir rol_id a la respuesta
-        'user_id' => $usuario['id'] // Añadir id del usuario
+        'user_id' => $usuario['id'], // Añadir id del usuario
+        'identificacion' => $usuario['identificacion'] // Añadir identificación a la respuesta
     ];
 
     echo json_encode($response);

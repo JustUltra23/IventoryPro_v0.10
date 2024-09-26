@@ -1,1 +1,74 @@
-<p>pqr works!</p>
+<div class="container">
+    <h2>Generar PQR</h2>
+
+<!-- Formulario para crear/editar una PQRS -->
+<form (ngSubmit)="isEditing ? actualizarPQR() : crearPQR()">
+    <div class="form-group">
+      <label for="usuario_id">Usuario ID:</label>
+      <input type="number" id="usuario_id" [(ngModel)]="pqr.usuario_id" name="usuario_id" required readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="fo_documento">Documento Usuario:</label>
+      <input type="text" id="fo_documento" [(ngModel)]="pqr.fo_documento" name="fo_documento" required readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" [(ngModel)]="pqr.fecha" name="fecha" required>
+    </div>
+
+    <div class="form-group">
+      <label for="tipo">Tipo de Requerimiento:</label>
+      <select id="tipo" [(ngModel)]="pqr.tipo" name="tipo" required>
+        <option *ngFor="let tipo of tiposRequerimientos" [value]="tipo">{{ tipo }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" [(ngModel)]="pqr.descripcion" name="descripcion" required></textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="tienda">Tienda:</label>
+      <select id="tienda" [(ngModel)]="pqr.fo_tienda" name="fo_tienda" required>
+        <option *ngFor="let tienda of tiendas" [value]="tienda.id">{{ tienda.nombre }}</option>
+      </select>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">
+        {{ isEditing ? 'Actualizar PQRS' : 'Crear PQRS' }}
+    </button>
+</form>
+  
+<!-- Tabla para listar las PQRS del usuario -->
+<div *ngIf="pqrs.length > 0">
+  <h2>Mis PQRS</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+        <th>Tienda</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pqr of pqrs">
+        <td>{{ pqr.tipo }}</td>
+        <td>{{ pqr.descripcion }}</td>
+        <td>{{ pqr.estado }}</td>
+        <td>{{ pqr.nombre_tienda }}</td>
+        <td>
+          <button (click)="editarPQR(pqr.id)" class="btn btn-warning">Editar</button>
+          <button (click)="eliminarPQR(pqr.id)" class="btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+

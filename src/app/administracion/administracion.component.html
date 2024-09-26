@@ -1,12 +1,10 @@
-<title>Administración IventoryPro</title>
-<link rel="stylesheet" href="administracion.component.scss">
-  <div class="container">
-    <div class="text">
-      Administración IventoryPro
-    </div>
-    <div class="buttons">
-      <button type="button">Tiendas</button>
-      <button type="button">Roles</button>
-      <button type="button">Reportes</button>
+<div class="container">
+  <div class="text">Administración IventoryPro</div>
+  <div class="buttons">
+    <button type="button" routerLink="tiendas">Tiendas</button>
+    <button type="button" routerLink="roles">Roles</button>
+    <button type="button" routerLink="solicitudes">Solicitudes</button>
+    <button type="button" routerLink="reportes">Reportes</button>
   </div>
+  <router-outlet></router-outlet>
 </div>
