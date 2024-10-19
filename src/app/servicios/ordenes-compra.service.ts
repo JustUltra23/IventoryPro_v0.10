@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrdenesCompraService {
-  private apiUrl = 'http://localhost/iventorypro/src/app/PHP/ordenes_compras/';
+  private apiUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/ordenes_compras/';
 
   constructor(private http: HttpClient) { }
 

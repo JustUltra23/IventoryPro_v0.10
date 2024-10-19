@@ -108,5 +108,75 @@ td button:last-child:hover {
   color: black;
 }
 
+/* Estilo general para pantallas pequeñas (360px) */
+@media (max-width: 360px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #f9f9f9;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  form {
+    gap: 8px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    width: 100%;
+  }
+
+  label {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  button {
+    margin-bottom: 8px;
+  }
+
+  /* Estilo para la tabla */
+  table {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+
+  td button {
+    padding: 4px;
+    font-size: 12px;
+  }
+
+  td button:hover {
+    background-color: rgb(167, 163, 163);
+    color: black;
+  }
+
+  /* Ajustes adicionales */
+  th {
+    font-size: 14px;
+  }
+
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .error-message {
+    font-size: 12px;
+  }
+}
 
   

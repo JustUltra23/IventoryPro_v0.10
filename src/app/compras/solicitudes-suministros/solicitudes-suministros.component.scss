@@ -123,3 +123,22 @@
       }
     }
   }
+
+  @media (max-width: 360px) {
+    th, td {
+      font-size: 10px;
+    }
+  
+    button {
+      font-size: 10px;
+      padding: 5px;
+    }
+  
+    form div {
+      margin-bottom: 10px;
+    }
+  
+    textarea {
+      height: 60px;
+    }
+  } 

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
-  url='http://localhost/iventorypro/src/app/PHP/usuario/';
+  url='https://steelblue-gorilla-216445.hostingersite.com/PHP/usuario/';
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +28,7 @@ export class UsuarioService {
   }
 
   validarDatos(user: any): Observable<any> {
-    return this.http.post<any>(`${this.url}/validar_usuario.php`, user);
+    return this.http.post<any>(`${this.url}validar_usuario.php`, user);
   }
   
   getDashboardData(): Observable<any> {

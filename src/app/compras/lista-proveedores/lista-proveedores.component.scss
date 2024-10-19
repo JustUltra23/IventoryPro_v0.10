@@ -1,102 +1,159 @@
 .container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  button {
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
     border-radius: 5px;
-    background-color: #f9f9f9;
-  
-    h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
     }
-  
-    button {
+  }
+
+  table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block; /* Para permitir scroll horizontal en pantallas pequeñas */
+    white-space: nowrap;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    td button {
+      margin: 1px;
+      padding: 5px;
+      background-color: rgb(50, 51, 53);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(167, 163, 163);
+        color: black;
+      }
+    }
+  }
+
+  form {
+    margin-top: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
       margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-right: 10px;
       padding: 8px 16px;
       background-color: #007bff;
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-  
+
       &:hover {
         background-color: #0056b3;
       }
     }
-  
-    table {
-      width: 100%;
-      margin-top: 15px;
-      border-collapse: collapse;
-  
-      th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-  
-      th {
-        background-color: #f2f2f2;
-      }
-  
-      td {
-        background-color: #fff;
-  
-        &:nth-child(odd) {
-          background-color: #f9f9f9;
-        }
-      }
-  
-      button {
-        margin: 0 5px;
-        padding: 6px 12px;
-        background-color: #dc3545;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-  
-        &:hover {
-          background-color: #c82333;
-        }
-      }
-    }
-  
-    form {
-      margin-top: 15px;
-  
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-  
-      input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-  
-      button {
-        margin-right: 10px;
-        padding: 8px 16px;
-        background-color: #28a745;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-  
-        &:hover {
-          background-color: #218838;
-        }
-      }
-  
-      button:last-child {
-        margin-right: 0;
-      }
+
+    button:last-child {
+      margin-right: 0;
     }
   }
-  
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 360px) {
+  table {
+    display: block; /* Activar el scroll horizontal */
+    white-space: nowrap; /* Evitar que las celdas se rompan en línea */
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+
+  button {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  td button {
+    padding: 4px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  /* Ajuste alternativo con diseño en formato de tarjetas para móviles */
+  tbody tr {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  tbody td {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 5px 0;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  thead {
+    display: none;
+  }
+}

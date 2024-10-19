@@ -76,5 +76,105 @@
   .container form button:last-child {
     margin-right: 0;
   }
+
+  /* Estilo para evitar que el texto se colapse en las celdas de la tabla */
+td, th {
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+  overflow: hidden; /* Oculta el texto que no cabe */
+  text-overflow: ellipsis; /* Añade '...' si el texto es demasiado largo */
+}
+
+table {
+  table-layout: auto; /* Ajuste automático del ancho de las columnas */
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+  border-collapse: collapse; /* Mantiene el diseño compacto */
+}
   
+  @media only screen and (max-width: 360px) {
+    
+    td, th {
+      white-space: normal; /* Permite que el texto se divida en múltiples líneas en pantallas pequeñas */
+      word-wrap: break-word; /* Rompe las palabras largas que excedan el ancho de la columna */
+    }
+    
+    
+    .container {
+      padding: 10px;
+      max-width: 100%;
+      border: none;
+    }
+  
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    form {
+      label {
+        font-size: 14px;
+      }
+  
+      input,
+      select {
+        font-size: 14px;
+        padding: 6px;
+      }
+  
+      button {
+        font-size: 14px;
+        padding: 6px 10px;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  
+    table {
+      font-size: 12px;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+  
+    th, td {
+      padding: 5px;
+      font-size: 12px;
+      text-align: left;
+    }
+  
+    th {
+      font-size: 14px;
+    }
+  
+    /* Mostrar tabla como lista vertical */
+    thead {
+      display: none;
+    }
+  
+    tbody tr {
+      display: block;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    tbody td {
+      display: block;
+      text-align: right;
+      padding-left: 40%;
+      position: relative;
+    }
+  
+    tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+  
+    /* Alineación de los botones */
+    button {
+      width: 100%;
+    }
+  }
   

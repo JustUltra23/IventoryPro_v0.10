@@ -94,3 +94,52 @@
     }
   }
   
+  // Media Queries para dispositivos móviles
+@media (max-width: 360px) {
+  .container {
+      padding: 10px;
+
+      h2 {
+          font-size: 20px; // Ajustar tamaño de fuente
+      }
+
+      .form-container {
+          form {
+              .form-group {
+                  label {
+                      font-size: 14px; // Ajustar tamaño de fuente para las etiquetas
+                  }
+
+                  select,
+                  input[type="text"],
+                  input[type="date"],
+                  input[type="number"] {
+                      padding: 6px; // Reducir padding en inputs
+                  }
+              }
+
+              button {
+                  width: 100%; // Botón ocupa el ancho completo
+                  margin: 10px 0; // Espaciado vertical entre botones
+              }
+          }
+      }
+
+      .table-container {
+          table {
+              th,
+              td {
+                  font-size: 14px; // Ajustar tamaño de fuente en la tabla
+                  padding: 6px; // Reducir padding en la tabla
+              }
+
+              tbody tr {
+                  button {
+                      padding: 4px; // Reducir padding de botones en la tabla
+                      width: 100%; // Botones en la tabla ocupan el ancho completo
+                  }
+              }
+          }
+      }
+  }
+}

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RecepcionMercanciaService {
 
-  private apiUrl = 'http://localhost/iventorypro/src/app/PHP/recepcion_mercancia/';
+  private apiUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/recepcion_mercancia/';
 
   constructor(private http: HttpClient) { }
 

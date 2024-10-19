@@ -29,7 +29,13 @@
       width: 100%;
       margin-top: 15px;
       border-collapse: collapse;
+      display: block;
+      overflow-x: auto; /* Habilita desplazamiento horizontal si la tabla es muy ancha */
   
+      thead {
+        display: none; /* Ocultamos el encabezado en móviles */
+      }
+
       th, td {
         border: 1px solid #ddd;
         padding: 8px;
@@ -101,3 +107,44 @@
       }
     }
   }
+
+  /* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    td {
+      font-size: 12px;
+      padding: 8px;
+    }
+
+    form {
+      label {
+        font-size: 12px;
+      }
+
+      input, textarea {
+        font-size: 12px;
+        padding: 5px;
+      }
+
+      button {
+        padding: 8px;
+      }
+    }
+  }
+}

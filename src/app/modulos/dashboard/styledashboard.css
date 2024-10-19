@@ -1,47 +1,88 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .sidenav {
-    margin-top: 50px; /* Ajusta el margen superior según el tamaño del header */
-    margin-left: 30px; /* Ajusta el margen izquierdo según tu preferencia */
-    margin-bottom: auto;
-    width: 250px;
-    height: calc(100% - 60px);
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: #333;
-    color: white;
-    overflow-y: auto;
-    border-radius: 10px;
-    padding-bottom: 20px;
-  }
-  
-  .sidenav a {
-    padding: 10px 15px;
-    text-decoration: none;
-    color: white;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    background-color: #555;
-  }
-  .main {
-    margin-left: 250px; 
-    padding: 20px;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Ajustes para la sidenav pegada a la izquierda y con opción de ocultarse */
+.sidenav {
+  margin-top: 50px; 
+  margin-left: 0; /* Completamente pegado a la izquierda */
+  margin-bottom: auto;
+  width: 250px;
+  height: calc(100% - 60px);
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #333;
+  color: white;
+  overflow-y: auto;
+  border-radius: 0; /* Quitar el borde redondeado para que quede más limpio */
+  transition: transform 0.3s ease; /* Animación suave para mostrar/ocultar */
+}
+
+.sidenav-hidden {
+  transform: translateX(-250px); /* Oculta el sidenav moviéndolo fuera de la pantalla */
+}
+
+.sidenav a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  background-color: #555;
+}
+
+.main {
+  margin-left: 250px; 
+  padding: 20px;
+  transition: margin-left 0.3s ease; /* Animación suave para ajustar el contenido */
+}
+
+.sidenav-hidden ~ .main {
+  margin-left: 0; /* Ajusta el margen si el sidenav está oculto */
+}
+
+
+/*PARA EL BOTON DE OCULTAR*/
+
+.toggle-button {
+  position: fixed;
+  top: 90px; /* Ubicado al nivel de la parte superior del aside */
+  left: 250px; /* Cuando el sidenav está visible */
+  transform: translateX(0);
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1000; /* Asegura que el botón siempre esté sobre otros elementos */
+  transition: left 0.3s ease;
+  display: flex;
+  align-items: center; /* Alinea verticalmente el texto e imagen */
+  gap: 5px; /* Espacio entre el icono y el texto */
+}
+
+.toggle-icon {
+  width: 40px; /* Tamaño igual a la altura de la letra */
+    height: 40px;
+    filter: invert();
+}
+
+.sidenav-hidden ~ .toggle-button {
+  left: 0; /* Cuando el sidenav está oculto */
+}
+
+
+.main-content-collapsed {
+  margin-left: 0; /* Cuando el sidenav esté oculto, ajusta el margen de la página principal */
+}
   
   .sidenav-header {
     position: fixed;
@@ -50,6 +91,9 @@ body {
     right: 0;
     background-color: #333;
     padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para separar el ícono del texto */
   }
   
   .sidenav-header a {
@@ -135,4 +179,72 @@ body {
   }
 }
 
+/* Responsive layout for mobile */
+/* Media query para pantallas móviles 360x640 */
+@media only screen and (max-width: 360px) {
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
+  /* Ajustes para el sidenav */
+  .sidenav {
+    width: 200px; /* Reducir el ancho del sidenav en pantallas pequeñas */
+    height: calc(100% - 50px); /* Ajustar altura */
+    margin-top: 50px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #333;
+    color: white;
+    transition: transform 0.3s ease; /* Animación suave */
+  }
+
+  .sidenav-hidden {
+    transform: translateX(-200px); /* Oculta el sidenav en móviles */
+  }
+
+  /* Ajustes para los íconos e items */
+  .icono-izquierda {
+    width: 30px; /* Reducir tamaño de los íconos */
+    height: 30px;
+    left: 15px;
+  }
+
+  .nav-link-text {
+    font-size: 14px; /* Reducir el tamaño de la fuente en el sidenav */
+  }
+
+  .nav-item {
+    margin-bottom: 10px;
+  }
+
+  /* Ajustes para el botón de toggle */
+  .toggle-button {
+    top: 80px; /* Ubicar más alto en móviles */
+    left: 200px; /* Ajustar posición cuando el sidenav está visible */
+    padding: 8px 12px; /* Reducir tamaño del botón */
+  }
+
+  .sidenav-hidden ~ .toggle-button {
+    left: 0; /* Cuando el sidenav está oculto */
+  }
+
+  /* Ajustes para el contenido principal */
+  .main {
+    margin-left: 200px; /* Ajustar margen cuando el sidenav está visible */
+    padding: 10px; /* Menor padding en móviles */
+  }
+
+  .main-content-collapsed {
+    margin-left: 0; /* Cuando el sidenav está oculto */
+  }
+
+  .toggle-icon{
+    width: 30px; /* Reducir tamaño de los íconos */
+    height: 30px;
+    left: 15px;
+  }
+
+
+}

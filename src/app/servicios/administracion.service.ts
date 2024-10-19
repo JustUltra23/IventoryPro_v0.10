@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdministracionService {
-  url = 'http://localhost/iventorypro/src/app/PHP/roles/'; // Ajusta esta URL
-  apiUrl = 'http://localhost/IventoryPro/src/app/PHP/administracion/';
+  url = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/roles/'; // Ajusta esta URL
+  apiUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/administracion/';
 
   constructor(private http: HttpClient) { }
 
@@ -33,12 +33,12 @@ export class AdministracionService {
 
   // Método para consultar todas las solicitudes
   consultar(): Observable<any> {
-    return this.http.get<any>(this.apiUrl + '/consultar_solicitudes.php');
+    return this.http.get<any>(this.apiUrl + 'consultar_solicitudes.php');
   }
 
   // Método para editar el estado de una solicitud
   editar(solicitud: any): Observable<any> {
-    return this.http.put<any>(this.apiUrl + '/editar_solicitud.php', {
+    return this.http.put<any>(this.apiUrl + 'editar_solicitud.php', {
       id: solicitud.id,
       estado: solicitud.estado
     });

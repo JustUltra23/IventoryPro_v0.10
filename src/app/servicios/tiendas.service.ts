@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TiendasService  {
-  url = 'http://localhost/iventorypro/src/app/PHP/tiendas/'; // Ajusta esta URL a la ruta de tu servidor
+
+  url = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/tiendas/'; 
 
   constructor(private http: HttpClient) { }
 

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ComprasService {
-  url = 'http://localhost/IventoryPro/src/app/PHP/proveedores/';
+  url = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/proveedores/';
 
   constructor(private http: HttpClient) { }
 

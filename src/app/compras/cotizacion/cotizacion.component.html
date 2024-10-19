@@ -5,34 +5,36 @@
   <button (click)="mostrarFormularioNuevo()">Agregar Nueva Cotización</button>
 
   <!-- Tabla para mostrar las cotizaciones -->
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Titular</th>
-        <th>Fecha</th>
-        <th>Total</th>
-        <th>Descripción</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cotizacion of cotizaciones">
-        <td>{{ cotizacion.id }}</td>
-        <td>{{ cotizacion.titular }}</td>
-        <td>{{ cotizacion.fecha }}</td>
-        <td>{{ cotizacion.total }}</td>
-        <td>{{ cotizacion.descripcion }}</td>
-        <td>
-          <button (click)="mostrarFormularioEditar(cotizacion)">Editar</button>
-          <button (click)="eliminarCotizacion(cotizacion.id)">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Titular</th>
+          <th>Fecha</th>
+          <th>Total</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cotizacion of cotizaciones">
+          <td>{{ cotizacion.id }}</td>
+          <td>{{ cotizacion.titular }}</td>
+          <td>{{ cotizacion.fecha }}</td>
+          <td>{{ cotizacion.total }}</td>
+          <td>{{ cotizacion.descripcion }}</td>
+          <td>
+            <button (click)="mostrarFormularioEditar(cotizacion)">Editar</button>
+            <button (click)="eliminarCotizacion(cotizacion.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- Formulario para editar o agregar cotización -->
-  <div *ngIf="cotizacionActual !== null">
+  <div *ngIf="cotizacionActual !== null" class="form-container">
     <h3>{{ creandoNuevo ? 'Agregar Nueva Cotización' : 'Editar Cotización' }}</h3>
     <form (ngSubmit)="guardarCotizacion()">
       <label for="titular">Titular:</label>
@@ -45,7 +47,7 @@
       <textarea id="descripcion" [(ngModel)]="cotizacionActual.descripcion" name="descripcion"></textarea>
 
       <!-- Formulario para agregar productos -->
-      <div *ngFor="let detalle of cotizacionActual.detalles">
+      <div *ngFor="let detalle of cotizacionActual.detalles" class="detalle-container">
         <label for="producto_id">Producto:</label>
         <select [(ngModel)]="detalle.producto_id" name="producto_id" (change)="actualizarPrecio(detalle)" required>
           <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
@@ -67,6 +69,7 @@
     </form>
   </div>
 </div>
+
 
   
   

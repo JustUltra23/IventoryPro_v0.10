@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CotizacionesService {
-  private apiUrl = 'http://localhost/iventorypro/src/app/PHP/cotizaciones/';
+  private apiUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/cotizaciones/';
 
   constructor(private http: HttpClient) { }
 

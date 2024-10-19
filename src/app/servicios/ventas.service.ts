@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VentasService {
-  private apiUrl = 'http://localhost/IventoryPro/src/app/PHP/ventas/';
-  private tiendasUrl = 'http://localhost/IventoryPro/src/app/PHP/recepcion_mercancia/';
+  private apiUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/ventas/';
+  private tiendasUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/recepcion_mercancia/';
 
   constructor(private http: HttpClient) {}
 
@@ -41,11 +41,11 @@ export class VentasService {
   }
 
   obtenerVendedorPorIdentificacion(identificacion: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/obtener_vendedor_por_identificacion.php`, { identificacion });
+    return this.http.post(`${this.apiUrl}obtener_vendedor_por_identificacion.php`, { identificacion });
   }
 
   obtenerDetallesVenta(ventaId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/consultar_detalles_ventas.php?venta_id=${ventaId}`);
+    return this.http.get(`${this.apiUrl}consultar_detalles_ventas.php?venta_id=${ventaId}`);
   }
 
   //SERVICIOS PARA MODIFICAR Y ELIMINAR VENTAS//

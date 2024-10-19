@@ -80,55 +80,76 @@ form .signup-link a:hover {
   text-decoration: underline;
 }
 
-
-/* Media Queries para dispositivos móviles */
-@media (max-width: 600px) {
-  .container {
-    padding: 20px; /* Menos padding en móviles */
-  }
-
-  .container .text {
-    font-size: 28px; /* Tamaño de texto más pequeño */
-  }
-
-  form .data label {
-    font-size: 14px; /* Tamaño de texto más pequeño */
-  }
-
-  form .data input {
-    font-size: 15px; /* Tamaño de texto más pequeño */
-  }
-
-  .input-box.button input[type="submit"] {
-    font-size: 16px; /* Ajustado para ser más legible */
-  }
-
-  form .signup-link {
-    font-size: 12px; /* Tamaño de texto más pequeño */
-  }
-}
-
-/* login.component.css */
+/* Contenedor principal de la entrada de la contraseña */
 .password-input {
-  position: relative; /* Permitir posicionamiento absoluto de los elementos dentro */
+  position: relative; /* Para permitir posicionar el botón del ojo dentro del input */
+  display: flex;
+  align-items: center;
 }
 
+/* El input de la contraseña ocupa todo el espacio menos el ícono */
 .password-input input {
-  width: 100%; /* Ocupar todo el ancho disponible */
-  padding-right: 40px; /* Espacio para el ícono */
+  width: 100%; /* Se asegura de que el input ocupe todo el ancho disponible */
+  padding-right: 40px; /* Agrega espacio al final para que el botón no cubra el texto */
 }
 
+/* Botón para alternar la visibilidad de la contraseña */
 .toggle-password {
-  position: absolute; /* Posicionarlo de manera absoluta */
-  right: 10px; /* A la derecha del input */
-  top: 50%; /* Centrado verticalmente */
-  transform: translateY(-50%); /* Ajustar para que esté centrado */
-  background: transparent; /* Sin fondo */
+  position: absolute; /* Para colocarlo dentro del contenedor relativo (.password-input) */
+  right: 10px; /* Ubicado al final del input */
+  background-color: transparent; /* Sin color de fondo */
   border: none; /* Sin borde */
-  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  cursor: pointer;
+  padding: 0;
 }
 
 .toggle-password img {
-  width: 20px; /* Ajustar el tamaño de la imagen */
-  height: 20px; /* Ajustar el tamaño de la imagen */
+  width: 24px; /* Ajusta el tamaño del ícono */
+  height: 24px;
+  filter: invert(50%); /* Opción para invertir los colores si es necesario */
+}
+
+
+/* Estilos para pantallas más pequeñas */
+@media only screen and (max-width: 360px) {
+  .container {
+    width: 90%; /* Ajusta el ancho del contenedor a un porcentaje para pantallas más pequeñas */
+    padding: 20px; /* Reduce el padding del contenedor */
+  }
+
+  .container .text {
+    font-size: 28px; /* Reduce el tamaño del título */
+  }
+
+  form .data input {
+    height: 40px; /* Reduce la altura de los inputs */
+    font-size: 15px; /* Disminuye el tamaño de la fuente */
+  }
+
+  .input-box.button input[type="submit"] {
+    height: 40px; /* Reduce la altura del botón */
+    font-size: 16px; /* Disminuye el tamaño del texto en el botón */
+  }
+
+  .password-input {
+    display: flex;
+    align-items: center;
+  }
+
+  .password-input button {
+    background: none; /* Elimina el fondo del botón */
+    border: none; /* Elimina los bordes */
+    cursor: pointer; /* Añade el puntero de clic */
+    padding: 0;
+    margin-left: 10px; /* Añade espacio entre el input y el botón */
+  }
+
+  .password-input img {
+    width: 20px; /* Ajusta el tamaño del icono */
+    height: 20px;
+  }
+
+  form .signup-link {
+    font-size: 14px; /* Ajusta el tamaño del texto de registro */
+  }
 }

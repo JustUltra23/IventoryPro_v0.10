@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InventarioTiendasService {
-  private apiUrlInventario = 'http://localhost/iventorypro/src/app/PHP/consulta_inventario/consulta_inventario.php';
-  private apiUrlTiendas = 'http://localhost/iventorypro/src/app/PHP/consulta_inventario/consulta_tiendas.php';
+  private apiUrlInventario = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/consulta_inventario/consulta_inventario.php';
+  private apiUrlTiendas = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/consulta_inventario/consulta_tiendas.php';
 
   constructor(private http: HttpClient) { }
 

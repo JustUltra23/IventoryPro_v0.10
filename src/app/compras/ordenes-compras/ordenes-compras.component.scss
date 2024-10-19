@@ -8,7 +8,7 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
   h2 {
-    font-size: 35px;
+    font-size: 24px;
     font-weight: 600;
     text-align: center;
     margin-bottom: 20px;
@@ -28,6 +28,7 @@
         display: block;
         margin-bottom: 5px;
         font-weight: bold;
+        font-size: 14px; /* Ajustar el tamaño de la fuente */
       }
 
       input[type="date"],
@@ -38,21 +39,14 @@
         border: 1.5px solid #c7bebe; /* Gris claro */
         border-radius: 6px;
         transition: all 0.3s ease;
-      }
-
-      input:focus,
-      input:valid,
-      textarea:focus,
-      textarea:valid,
-      select:focus,
-      select:valid {
-        border-color: #4070f4; /* Azul */
+        font-size: 14px; /* Ajustar el tamaño de la fuente */
       }
     }
 
     .button-group {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap; /* Ajustar botones en pantallas pequeñas */
     }
 
     button[type="submit"],
@@ -65,15 +59,9 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: rgb(167, 163, 163); /* Gris más claro */
-        color: black;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
+      font-size: 14px; /* Ajustar el tamaño de la fuente */
+      width: 100%; /* Ajustar el ancho del botón en pantallas pequeñas */
+      margin-bottom: 10px; /* Añadir espacio entre los botones */
     }
   }
 
@@ -87,6 +75,7 @@
       border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
+      font-size: 14px; /* Ajustar el tamaño de la fuente */
     }
 
     th {
@@ -110,10 +99,57 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      font-size: 12px; /* Ajustar el tamaño de la fuente */
+    }
+  }
+}
 
-      &:hover {
-        background-color: rgb(167, 163, 163); /* Gris más claro */
-        color: black;
+/* Media query para pantallas móviles */
+@media only screen and (max-width: 360px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+
+    h2 {
+      font-size: 18px; /* Reducir el tamaño del título */
+    }
+
+    form {
+      padding: 10px;
+
+      div {
+        margin-bottom: 10px;
+
+        label {
+          font-size: 12px; /* Reducir el tamaño de la etiqueta */
+        }
+
+        input[type="date"],
+        input[type="number"],
+        select {
+          font-size: 12px; /* Reducir el tamaño del input */
+          padding: 8px; /* Reducir el padding */
+        }
+      }
+
+      button[type="submit"],
+      button[type="button"] {
+        font-size: 12px; /* Reducir el tamaño del botón */
+        padding: 8px; /* Reducir el padding */
+      }
+    }
+
+    table {
+      font-size: 12px; /* Reducir el tamaño de la tabla */
+
+      th,
+      td {
+        padding: 6px; /* Reducir el padding de las celdas */
+      }
+
+      button {
+        font-size: 10px; /* Reducir el tamaño del texto en botones */
+        padding: 4px 8px; /* Ajustar el padding de los botones */
       }
     }
   }

@@ -1,8 +1,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="styledashboard.css">
 <title>Dashboard</title>
-<aside class="sidenav bg-gradient-dark" id="sidenav-main">
-    <hr class="horizontal light">
+
+<aside class="sidenav bg-gradient-dark" id="sidenav-main" [ngClass]="{'sidenav-hidden': isSidenavHidden}">
+  <hr class="horizontal light">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/dashboard">
@@ -83,7 +84,14 @@
     </ul>
   </aside>
 
-   <router-outlet></router-outlet>
+          <!-- Botón para mostrar/ocultar la barra lateral -->
+<button (click)="toggleSidenav()" class="toggle-button">
+  <img src="assets/img/ocultar.png" alt="Icono Ocultar" class="toggle-icon">
+  {{ isSidenavHidden ? 'Mostrar' : 'Ocultar' }}
+</button>
+
+  <router-outlet></router-outlet>
+
 
   <!-- PENDIENTE DE AJUSTE CARTAS 26/09/2024
    

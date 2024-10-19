@@ -20,9 +20,15 @@ export class DashboardComponent implements OnInit {
   totalProductos: number = 0;
   totalUsuarios: number = 0;
 
+  isSidenavHidden = false; // Inicialmente, el sidenav está visible
+
+
   constructor(private authService: AuthService, private router: Router, private usuarioService: UsuarioService) {}
 
 
+  toggleSidenav() {
+    this.isSidenavHidden = !this.isSidenavHidden; // Alterna el estado
+  }
 
   async ngOnInit(): Promise<void> { // Cambia la firma a async
     // Suscribirse a los cambios de estado de inicio de sesión

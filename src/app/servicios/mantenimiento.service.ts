@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MantenimientoService {
-  private tiendasUrl = 'http://localhost/IventoryPro/src/app/PHP/recepcion_mercancia/';
-  private apiUrl = 'http://localhost/IventoryPro/src/app/PHP/mantenimiento/';
+  private tiendasUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/recepcion_mercancia/';
+  private apiUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/mantenimiento/';
   constructor(private http: HttpClient) {}
 
   obtenerTiendas(): Observable<any[]> {

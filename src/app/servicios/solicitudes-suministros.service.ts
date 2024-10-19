@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SolicitudesSuministrosService {
 
-  private apiUrl = 'http://localhost/iventorypro/src/app/PHP/solicitudes_suministros/';
+  private apiUrl = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/solicitudes_suministros/';
 
   constructor(private http: HttpClient) { }
 

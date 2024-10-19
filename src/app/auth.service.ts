@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Storage } from '@ionic/storage-angular';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class AuthService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
   private storageInitialized = false;
-  private url = 'http://localhost/iventorypro/src/app/PHP/usuario/login.php';
+  private url = 'https://steelblue-gorilla-216445.hostingersite.com/PHP/usuario/login.php';
   private roleSubject = new BehaviorSubject<number | null>(null);
   role$ = this.roleSubject.asObservable();
 
@@ -42,6 +43,32 @@ export class AuthService {
       throw error; // Lanza el error para que pueda ser manejado en el componente
     }
   }
+
+    /*async login(email: string, password: string) {
+      // Define los encabezados HTTP
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer <token>', // Si tienes un token o cualquier otro encabezado, agrégalo aquí
+      });
+    
+      try {
+        // Incluye los encabezados en la solicitud HTTP
+        const response: any = await this.http.post(this.url, { email, password }, { headers }).toPromise();
+    
+        if (response && response.user_id && response.identificacion && response.rol_id) {  
+          await this.storage.set('user', response);
+          console.log('Ingreso Exitoso, ID de Rol Almacenado:', response.rol_id);
+          this.setLoggedIn(true, response.rol_id);
+        } else {
+          console.error('Error al iniciar sesión. Rol no encontrado.');
+          throw new Error('Error al iniciar sesión. Rol no encontrado.');
+        }
+      } catch (error) {
+        console.error('Error en la solicitud de login:', error);
+        throw error; // Lanza el error para que pueda ser manejado en el componente
+      }
+    } */
+    
 
   setLoggedIn(status: boolean, roleId: number | null = null) {
     if (this.storageInitialized) {
